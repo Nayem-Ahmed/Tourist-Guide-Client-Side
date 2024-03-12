@@ -4,18 +4,28 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import login2 from '../assets/loginn.webp';
 import signupbg from '../assets/signupbg.avif';
+import useAuth from '../API/useAuth';
 
 
 const Signin = () => {
+    const { signIn } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data) => {
-        // Handle form submission logic here
-        console.log(data);
+    const onSubmit = async (data) => {
+        try {
+
+            console.log(data);
+            // Create User
+            signIn(data.email, data.password);
+
+
+        } catch (error) {
+            console.error(error.message);
+        }
     };
 
     return (
         <div className='my-5'>
-            <div style={{ backgroundImage: `url(${signupbg})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh',  backgroundAttachment: "fixed" }} className='flex flex-col md:flex-row items-center justify-center w-10/12 mx-auto shadow-md rounded-md'>
+            <div style={{ backgroundImage: `url(${signupbg})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', backgroundAttachment: "fixed" }} className='flex flex-col md:flex-row items-center justify-center w-10/12 mx-auto shadow-md rounded-md'>
                 {/* Left section (for large screens) */}
                 <div className='hidden md:block md:w-1/2'>
                     <img className='w-full h-screen rounded-md' src={login2} alt="Login" />

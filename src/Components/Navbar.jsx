@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
+import useAuth from '../API/useAuth';
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
+    console.log(user);
     return (
         <div className="navbar bg-base-100 relative z-50">
             <div className="navbar-start">
@@ -28,7 +31,7 @@ const Navbar = () => {
                 <Link to='/'>
                     <div className='flex gap-1 items-center'>
                         <img className='w-11' src={logo} alt="" />
-                        <span className='text-xl font-medium'>Tourist <span className='text-[#fee133]'>Guide</span></span>
+                        <span className='md:text-xl font-medium'>Tourist <span className='text-[#fee133]'>Guide</span></span>
                     </div>
                 </Link>
             </div>
@@ -50,9 +53,37 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/signin'>
-                    <button className='bg-[#fee133] px-5 py-3 rounded-sm hover:bg-black hover:text-[#fee133] font-medium'>SIGN IN</button>
-                </Link>
+                <div className="dropdown dropdown-end md:mr-7">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            {user?.email ?
+                                <div className='flex items-center gap-2'>
+                                    <img className='rounded-full w-8' src={user?.photoURL} alt="" />
+                                </div>
+                                :
+                                <div className='flex items-center gap-2'>
+                                    <img className='rounded-full w-8 ' src='https://i.ibb.co/CQLSNTH/istockphoto-1337144146-612x612.jpg' alt="" />
+                                </div>
+                            }
+                        </div>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-100 rounded-box w-52">
+
+                        {user?.email ? <li className='mb-3 font-semibold'>{user?.displayName}</li> : null}
+
+                        <Link className='mb-3' to='/dashboard'><li className='font-semibold'>Dashboard</li></Link>
+
+                    </ul>
+                </div>
+
+                {user?.email ?
+                    <button onClick={logOut} className='bg-[#fee133] px-5 py-3 rounded-sm hover:bg-black hover:text-[#fee133] font-medium shadow'>Sign Out</button>
+                    :
+                    <Link to='/signin'>
+                        <button className='bg-[#fee133] px-5 py-3 rounded-sm hover:bg-black hover:text-[#fee133] font-medium shadow-md'>SIGN IN</button>
+                    </Link>
+                }
+
             </div>
         </div>
     );

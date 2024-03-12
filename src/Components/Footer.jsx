@@ -5,7 +5,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div className='bg-[#2f3640] p-8'>
+        <div className='bg-[#000] p-8'>
             <div className='flex flex-col md:flex-row gap-5 justify-center md:justify-between  text-white border-b-2 py-6'>
                 <div className='md:w-3/12'>
                     <h1 className='text-xl font-medium   mb-5 '>About Tourist Guide</h1>

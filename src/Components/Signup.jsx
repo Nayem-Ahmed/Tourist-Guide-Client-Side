@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import signup from '../assets/signup.avif';
 import signupbg from '../assets/signupbg.avif';
 import useAuth from '../API/useAuth';
+import { imgUpload } from '../API/imgbb';
 
 const Signup = () => {
-    const { createUser } = useAuth;
+    const { createUser,updateUserProfile } = useAuth();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
@@ -15,8 +16,13 @@ const Signup = () => {
 
             console.log(data);
             // Create User
-           const user =  await createUser(data?.email,data?.password);
-           console.log(user);
+            const { user } = await createUser(data?.email, data?.password);
+            console.log(user);
+            // Assuming imgUpload is a function that handles image upload
+            const imageData = await imgUpload(data.photo[0]);
+            console.log(imageData);
+            // Update user profile with additional data (name, photo, etc.)
+            await updateUserProfile(data.firstName, imageData?.data?.url);
 
         } catch (error) {
             console.error(error.message);
