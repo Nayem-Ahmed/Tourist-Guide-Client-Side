@@ -4,13 +4,23 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import signup from '../assets/signup.avif';
 import signupbg from '../assets/signupbg.avif';
-
+import useAuth from '../API/useAuth';
 
 const Signup = () => {
+    const { createUser } = useAuth;
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
-        console.log(data);
+        try {
+
+            console.log(data);
+            // Create User
+           const user =  await createUser(data?.email,data?.password);
+           console.log(user);
+
+        } catch (error) {
+            console.error(error.message);
+        }
 
     };
 
