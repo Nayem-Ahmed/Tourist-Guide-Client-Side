@@ -1,14 +1,17 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import login2 from '../assets/loginn.webp';
 import signupbg from '../assets/signupbg.avif';
 import useAuth from '../API/useAuth';
+import { toast } from 'react-toastify';
+import { saveUser } from '../API/auth';
 
 
 const Signin = () => {
-    const { signIn } = useAuth();
+    const { signIn, signInWithGoogle } = useAuth();
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
         try {
@@ -16,10 +19,24 @@ const Signin = () => {
             console.log(data);
             // Create User
             signIn(data.email, data.password);
-
+            toast.success("Sign in Successful")
+            navigate(location?.state ? location.state : '/');
 
         } catch (error) {
-            console.error(error.message);
+            toast.error(error.message);
+        }
+    };
+    const handleGoogleSignIn = async () => {
+        try {
+            const {user} = await signInWithGoogle();
+            // save user data in Database
+            const sendUserData = await saveUser(user)
+            console.log(sendUserData)
+            toast.success("Sign in Successful")
+            navigate(location?.state ? location.state : '/');
+
+        } catch (error) {
+            toast.error(error.message);
         }
     };
 
@@ -67,10 +84,10 @@ const Signin = () => {
                                 Submit
                             </button>
                             <i className="divider">OR</i>
-                            <button className="btn btn-block btn-outline text-white">
+                            <button onClick={handleGoogleSignIn} className="btn btn-block btn-outline text-white">
                                 <FcGoogle className="text-2xl" /> Continue With Google
                             </button>
-                            <p className='my-3 text-white'>Not a Member? <Link to='/signup' className='underline text-blue-500'>Signup</Link></p>
+                            <p className='my-3 text-white'>Not a Member? <Link to='/signup' className='underline text-yellow-600 font-semibold'>Signup</Link></p>
                         </form>
                     </div>
                 </div>

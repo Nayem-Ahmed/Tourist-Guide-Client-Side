@@ -5,7 +5,6 @@ import useAuth from '../API/useAuth';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
-    console.log(user);
     return (
         <div className="navbar bg-base-100 relative z-50">
             <div className="navbar-start">

@@ -1,14 +1,17 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import signup from '../assets/signup.avif';
 import signupbg from '../assets/signupbg.avif';
 import useAuth from '../API/useAuth';
 import { imgUpload } from '../API/imgbb';
+import { toast } from 'react-toastify';
+import { saveUser } from '../API/auth';
 
 const Signup = () => {
-    const { createUser,updateUserProfile } = useAuth();
+    const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
@@ -17,17 +20,32 @@ const Signup = () => {
             console.log(data);
             // Create User
             const { user } = await createUser(data?.email, data?.password);
-            console.log(user);
             // Assuming imgUpload is a function that handles image upload
             const imageData = await imgUpload(data.photo[0]);
             console.log(imageData);
-            // Update user profile with additional data (name, photo, etc.)
-            await updateUserProfile(data.firstName, imageData?.data?.url);
+            // Update user profile with additional data (name, photo, etc.
+            await updateUserProfile(data?.firstName, imageData?.data?.url);
+            // save user data in Database
+            const sendUserData = await saveUser(user)
+            toast.success('Sign Up successful');
+            navigate('/')
 
         } catch (error) {
-            console.error(error.message);
+            toast.error(error.message);
         }
 
+    };
+    const handleGoogleSignIn = async () => {
+        try {
+            const { user } = await signInWithGoogle();
+            // save user data in Database
+            const sendUserData = await saveUser(user)
+            toast.success('Sign Up successful');
+            navigate('/')
+
+        } catch (error) {
+            toast.error(error.message);
+        }
     };
 
     return (
@@ -85,12 +103,12 @@ const Signup = () => {
                             Sign Up
                         </button>
                         <i className="divider">OR</i>
-                        <button className="btn btn-block btn-outline text-white ">
+                        <button onClick={() => handleGoogleSignIn()} className="btn btn-block btn-outline text-white ">
                             <FcGoogle className="text-2xl " /> Continue With Google
                         </button>
 
                         <p className="my-3 text-white ">
-                            Already have an account? <Link to='/signin' className="underline text-blue-500" >Login</Link>
+                            Already have an account? <Link to='/signin' className="underline text-yellow-600 font-semibold" >Login</Link>
                         </p>
                     </form>
                 </div>
