@@ -3,11 +3,10 @@ import MenuItem from './MenuItem'
 // logo
 import logo from '../../assets/logo.png'
 // Icons
-
 import { AiOutlineBars } from 'react-icons/ai'
 import { CgProfile } from "react-icons/cg";
-import { IoBagAddSharp, IoHomeSharp ,IoList,IoAddCircleOutline  } from "react-icons/io5";
-import { MdManageHistory , MdAddShoppingCart } from "react-icons/md";
+import { IoHomeSharp, IoList, IoAddCircleOutline } from "react-icons/io5";
+import { MdManageHistory, MdAddShoppingCart } from "react-icons/md";
 import { Link } from 'react-router-dom'
 import { GrUserManager } from "react-icons/gr";
 import useAuth from '../../API/useAuth';
@@ -41,10 +40,8 @@ const Sidebar = () => {
                 <div>
                     <div className='block cursor-pointer p-4 font-bold'>
                         <h2>Tourist Guide</h2>
-
                     </div>
                 </div>
-
                 <button
                     onClick={handleToggle}
                     className='mobile-menu-button p-4 focus:outline-none focus:bg-gray-200'
@@ -70,7 +67,6 @@ const Sidebar = () => {
                     <div className='flex flex-col justify-between flex-1 mt-6'>
 
                         <nav>
-
                             <MenuItem
                                 icon={IoList}
                                 label='My Bookings'
@@ -88,7 +84,7 @@ const Sidebar = () => {
                             />
 
                             <MenuItem
-                                icon={IoAddCircleOutline }
+                                icon={IoAddCircleOutline}
                                 label='Add Package'
                                 address='/dashboard/addpackage'
                             />

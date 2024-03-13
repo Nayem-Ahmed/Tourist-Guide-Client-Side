@@ -6,6 +6,8 @@ import Signin from "../Components/Signin";
 import Signup from "../Components/Signup";
 import Dashboard from "../LayOut/Dashboard/Dashboard";
 import Privetrout from "../Routes/Privetroute"
+import MyBooking from "../LayOut/Dashboard/MyBooking";
+import AddPackage from "../LayOut/Dashboard/AddPackage";
 
 const router = createBrowserRouter([
     {
@@ -32,8 +34,13 @@ const router = createBrowserRouter([
         element: <Privetrout><Dashboard></Dashboard></Privetrout>,
         children: [
             {
-
-            }
+                path:"/dashboard/mybookings",
+                element:<MyBooking></MyBooking>
+            },
+            {
+                path:"/dashboard/addpackage",
+                element:<AddPackage></AddPackage>,
+            },
 
         ],
     }
