@@ -1,0 +1,18 @@
+[
+    {
+      "TourType": "Adventure",
+      "TripTitle": "Mountain Trekking Expedition",
+      "Price": "$1500"
+    },
+    {
+      "TourType": "Cultural",
+      "TripTitle": "Historical European Tour",
+      "Price": "$2000"
+    },
+    {
+      "TourType": "Beach",
+      "TripTitle": "Tropical Paradise Getaway",
+      "Price": "$1200"
+    }
+  ]
+  

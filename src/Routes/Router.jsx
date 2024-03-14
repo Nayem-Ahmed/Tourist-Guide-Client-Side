@@ -8,6 +8,7 @@ import Dashboard from "../LayOut/Dashboard/Dashboard";
 import Privetrout from "../Routes/Privetroute"
 import MyBooking from "../LayOut/Dashboard/MyBooking";
 import AddPackage from "../LayOut/Dashboard/AddPackage";
+import PackageDetails from "../Pages/Home/PackageDetails";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+            },
+            {
+                path: "/packageDetails/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/addpackage/${params.id}`),
+                element: <PackageDetails></PackageDetails>,
             },
             {
                 path: "/signin",

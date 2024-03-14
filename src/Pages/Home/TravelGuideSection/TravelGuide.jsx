@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import axiosPublic from '../../../API/axiosPublic';
+import { FaRegHeart } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
+
 
 const TravelGuide = () => {
+    const [packages, setPackages] = useState([]);
+
+    useEffect(() => {
+        axiosPublic.get('/addpackage')
+            .then(response => setPackages(response.data))
+            .catch(error => console.error('Error fetching packages:', error));
+        console.log(packages);
+    }, []);
     return (
         <div>
             <Tabs className="mx-auto block text-center mt-5 mb-10">
@@ -13,40 +25,46 @@ const TravelGuide = () => {
                 </TabList>
 
                 <TabPanel>
-                    <h2 className="text-2xl font-bold mb-4">Overview</h2>
-                    <p>
-                        Welcome to our Travel Guide! In this section, you can find comprehensive information about various destinations, attractions, and travel tips.
-                        To make your experience more enjoyable, we've included exciting videos showcasing the beauty of each location.
-                    </p>
-                    {/* Include videos here */}
+                    <div className='p-5'>
+                        <div className='flex flex-col md:flex-row gap-5  mb-5'>
+                            <div className='text-left basis-2/3'>
+                                <p className='mb-4 text-xl font-semibold'>Welcome to our Travel Agency!</p>
+                                <h2 className='mb-4  text-lg text-gray-500'>Here you can find exciting travel packages and meet our amazing tour guides.Discover the world with us and create unforgettable memories!  Whether you're looking for adventurous activities, cultural experiences, or relaxing getaways, we have something for everyone</h2>
+                                <h3 className='text-lg text-gray-500'>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden inthe middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,making this the first true generator on the Internet.</h3>
+                            </div>
+                            <div className='basis-1/2'>
+                                <iframe
+                                    width="560"
+                                    height="315"
+                                    src="https://www.youtube.com/embed/oYRw02g706M"
+                                    title="Overview Video"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div >
                 </TabPanel>
 
                 <TabPanel>
-                    <h2 className="text-2xl font-bold mb-4">Our Packages</h2>
-                    {/* Card components for packages */}
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {/* Card 1 */}
-                        <div className="bg-white rounded-lg shadow-md p-4 w-72">
-                            {/* Add trip to wishlist */}
-                            <div className="flex justify-end">
-                                <button className="text-red-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 6h14M5 12h14m-7 6h7" />
-                                    </svg>
+                    {/* Package list */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-5 ">
+                        {packages.map((packages, index) => (
+                            <div key={index} className="card card-compact  bg-base-100 shadow-md rounded-md group">
+                                <figure><img className='relative w-full md:h-56 group-hover:scale-110  transition duration-300 ease-in-out' src={packages.TouristImage} alt={packages.tourType} /></figure>
+                                <button type='button' style={{ background: 'rgba(255, 255, 255, 0.30)', padding: '0.5rem', position: 'absolute', right: '5px', top: '3px', borderRadius: '2px', zIndex: '1' }} className='hover:text-[#ff7550]'>
+                                    <FaRegHeart className='text-2xl' />
                                 </button>
+                                <div className="card-body">
+                                    <h2 className="card-title text-sm text-[#2c3e50]">Tour Type : {packages.tourType}</h2>
+                                    <p className='font-light'>{packages.tripTitle}</p>
+                                    <p className="text-sm">Price: ${packages.price}</p>
+                                    <div className="card-actions m-auto">
+                                        <Link to={`/packageDetails/${packages._id}`}><button type='button' className="bg-[#ff7550] py-2 px-4 hover:bg-black rounded-sm text-white font-medium">View Package</button></Link>
+                                    </div>
+                                </div>
                             </div>
-                            {/* Tour details */}
-                            <p className="text-sm font-bold">Tour Type: Adventure</p>
-                            <p className="text-lg font-bold">Trip Title: Amazing Adventure in the Wilderness</p>
-                            <p className="text-sm">Price: $1000</p>
-                            {/* View package button */}
-                            <button className="bg-blue-500 text-white px-4 py-2 mt-2 rounded-md hover:bg-blue-700">View Package</button>
-                        </div>
-                        {/* Card 2 and Card 3 can be similar */}
-                    </div>
-                    {/* All Packages button */}
-                    <div className="text-center mt-4">
-                        <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700">All Packages</button>
+                        ))}
                     </div>
                 </TabPanel>
 
@@ -60,7 +78,7 @@ const TravelGuide = () => {
                             <p className="text-lg font-bold">Tour Guide Name</p>
                             <p className="text-sm">Location: City, Country</p>
                             <p className="text-sm">Experience: 10 years</p>
-                            <button className="bg-blue-500 text-white px-4 py-2 mt-2 rounded-md hover:bg-blue-700">Details</button>
+                            <button className="bg-blue-500 text-white px-4 py-2 mt-2 rounded-md hover:bg-blue-700"> </button>
                         </div>
                         {/* Additional tour guide cards */}
                     </div>
