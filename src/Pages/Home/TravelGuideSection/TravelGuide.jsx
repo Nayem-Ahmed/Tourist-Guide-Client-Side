@@ -66,6 +66,9 @@ const TravelGuide = () => {
                             </div>
                         ))}
                     </div>
+                    <button type='button' className='bg-[#ff7550] py-2 mt-8 mx-auto block  text-center text-white  px-5 rounded-sm hover:bg-black'>
+                        All Packages
+                    </button>
                 </TabPanel>
 
                 <TabPanel>

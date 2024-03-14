@@ -10,3 +10,14 @@ export const saveUser = async (user) => {
 
     return data;
 }
+// Get user role
+export const getRole = async email => {
+    const { data } = await axiosPublic(`/users/${email}`)
+    return data
+}
+
+// get all users
+export const getAllUsers = async () => {
+    const { data } = await axiosPublic('/users')
+    return data
+}

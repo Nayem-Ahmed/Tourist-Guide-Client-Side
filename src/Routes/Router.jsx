@@ -9,6 +9,7 @@ import Privetrout from "../Routes/Privetroute"
 import MyBooking from "../LayOut/Dashboard/MyBooking";
 import AddPackage from "../LayOut/Dashboard/AddPackage";
 import PackageDetails from "../Pages/Home/PackageDetails";
+import Profile from "../LayOut/Dashboard/Profile";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path:"/dashboard/addpackage",
                 element:<AddPackage></AddPackage>,
+            },
+            {
+                path:"/dashboard/profile",
+                element: <Profile></Profile>,
             },
 
         ],
