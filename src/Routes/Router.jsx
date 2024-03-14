@@ -10,6 +10,7 @@ import MyBooking from "../LayOut/Dashboard/MyBooking";
 import AddPackage from "../LayOut/Dashboard/AddPackage";
 import PackageDetails from "../Pages/Home/PackageDetails";
 import Profile from "../LayOut/Dashboard/Profile";
+import ManageUser from "../LayOut/Dashboard/ManageUser";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path:"/dashboard/addpackage",
                 element:<AddPackage></AddPackage>,
+            },
+            {
+                path:"/dashboard/manageusers",
+                element: <ManageUser></ManageUser>,
             },
             {
                 path:"/dashboard/profile",
