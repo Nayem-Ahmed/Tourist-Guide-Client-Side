@@ -17,7 +17,7 @@ const TravelGuide = () => {
         axiosPublic.get('/addpackage')
             .then(response => setPackages(response.data))
             .catch(error => console.error('Error fetching packages:', error));
-        console.log(packag);
+             console.log(packag);
     }, []);
 
     const handleWishlist = async (packagee) => {
@@ -47,16 +47,14 @@ const TravelGuide = () => {
 
                 <TabPanel>
                     <div className='p-5'>
-                        <div className='flex flex-col md:flex-row gap-5  mb-5'>
-                            <div className='text-left basis-2/3'>
+                        <div className='flex flex-col md:flex-row gap-5'>
+                            <div className='text-left md:basis-2/3'>
                                 <p className='mb-4 text-xl font-semibold'>Welcome to our Travel Agency!</p>
                                 <h2 className='mb-4  text-lg text-gray-500'>Here you can find exciting travel packages and meet our amazing tour guides.Discover the world with us and create unforgettable memories!  Whether you're looking for adventurous activities, cultural experiences, or relaxing getaways, we have something for everyone</h2>
                                 <h3 className='text-lg text-gray-500'>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden inthe middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,making this the first true generator on the Internet.</h3>
                             </div>
-                            <div className='basis-1/2'>
-                                <iframe
-                                    width="560"
-                                    height="315"
+                            <div className='md:basis-1/2'>
+                                <iframe className='md:w-[500px] md:h-80'
                                     src="https://www.youtube.com/embed/oYRw02g706M"
                                     title="Overview Video"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -93,19 +91,16 @@ const TravelGuide = () => {
                 </TabPanel>
 
                 <TabPanel>
-                    <h2 className="text-2xl font-bold mb-4">Meet Our Tour Guides</h2>
-                    {/* Tour guide list */}
-                    <div>
-                        {/* Tour guide card components */}
-                        {/* Each card displays tour guide information */}
-                        <div className="bg-white rounded-lg shadow-md p-4 mb-4">
-                            <p className="text-lg font-bold">Tour Guide Name</p>
-                            <p className="text-sm">Location: City, Country</p>
-                            <p className="text-sm">Experience: 10 years</p>
-                            <button className="bg-blue-500 text-white px-4 py-2 mt-2 rounded-md hover:bg-blue-700"> </button>
-                        </div>
-                        {/* Additional tour guide cards */}
-                    </div>
+                {packag.map((guide, index) => (
+                            <div key={index} className="card card-compact  bg-base-100 shadow-md rounded-md group">
+              
+                         
+                                     <p className='font-light'>{guide.tourGuideName}</p>
+                            
+                                </div>
+       
+                        ))}
+
                 </TabPanel>
             </Tabs>
         </div>

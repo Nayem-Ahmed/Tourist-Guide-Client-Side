@@ -20,7 +20,7 @@ const Navbar = () => {
                         <li>
                             <a>Parent</a>
                             <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
+                                <li><Link to='/contactus'>Contact Us</Link></li>
                                 <li><a>Submenu 2</a></li>
                             </ul>
                         </li>
@@ -44,8 +44,8 @@ const Navbar = () => {
                         <details>
                             <summary>Pages</summary>
                             <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
+                            <li><Link to='/contactus'>Contact Us</Link></li>
+                                <li><a>Submenu</a></li>
                             </ul>
                         </details>
                     </li>
