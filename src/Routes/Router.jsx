@@ -12,6 +12,7 @@ import PackageDetails from "../Pages/Home/PackageDetails";
 import Profile from "../LayOut/Dashboard/Profile";
 import ManageUser from "../LayOut/Dashboard/ManageUser";
 import MyWishlist from "../LayOut/Dashboard/MyWishlist";
+import ContactUs from "../Pages/Home/ContactUs";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
                 path: "/packageDetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:5000/addpackage/${params.id}`),
                 element: <PackageDetails></PackageDetails>,
+            },
+            {
+                path: "/contactus",
+                element: <ContactUs></ContactUs>,
             },
             {
                 path: "/signin",
