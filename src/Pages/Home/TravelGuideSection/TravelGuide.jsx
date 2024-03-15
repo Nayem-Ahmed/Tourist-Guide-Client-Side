@@ -17,7 +17,7 @@ const TravelGuide = () => {
         axiosPublic.get('/addpackage')
             .then(response => setPackages(response.data))
             .catch(error => console.error('Error fetching packages:', error));
-             console.log(packag);
+        console.log(packag);
     }, []);
 
     const handleWishlist = async (packagee) => {
@@ -91,15 +91,21 @@ const TravelGuide = () => {
                 </TabPanel>
 
                 <TabPanel>
-                {packag.map((guide, index) => (
-                            <div key={index} className="card card-compact  bg-base-100 shadow-md rounded-md group">
-              
-                         
-                                     <p className='font-light'>{guide.tourGuideName}</p>
-                            
+                    <div className='flex flex-col md:flex-row gap-5 p-5'>
+
+                    {packag.map((guide, index) => (
+                        <div className=" bg-base-100 shadow-md p-5">
+                            <div className=" ">
+                                <img className='w-40 h-28 m-auto rounded-sm mb-3' src={guide.guideimage} alt="" />
+                                <h2 className='text-gray-500'>{guide.tourGuideName}</h2>
+                                <div className="mt-3">
+                                    <button className="bg-[#ff7550] px-4 py-1 rounded-md text-white">Details</button>
                                 </div>
-       
-                        ))}
+                            </div>
+                        </div>
+
+                    ))}
+                    </div>
 
                 </TabPanel>
             </Tabs>
