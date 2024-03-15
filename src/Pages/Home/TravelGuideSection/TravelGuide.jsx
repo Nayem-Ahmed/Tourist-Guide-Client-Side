@@ -6,9 +6,11 @@ import { FaRegHeart } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import { AddWishlistPost } from '../../../API/package';
 import { toast } from 'react-toastify';
+import useAuth from '../../../API/useAuth';
 
 
 const TravelGuide = () => {
+    const { user } = useAuth();
     const [packag, setPackages] = useState([]);
 
     useEffect(() => {
@@ -21,7 +23,12 @@ const TravelGuide = () => {
     const handleWishlist = async (packagee) => {
         try {
             const { _id, ...dataWithoutId } = packagee;
-            const wish = await AddWishlistPost(dataWithoutId);
+
+            const information = {
+                email: user?.email,
+                ...dataWithoutId
+            };
+            const wish = await AddWishlistPost(information);
             toast('Added Wishlist Successfull')
             console.log(wish);
 

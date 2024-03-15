@@ -11,6 +11,7 @@ import AddPackage from "../LayOut/Dashboard/AddPackage";
 import PackageDetails from "../Pages/Home/PackageDetails";
 import Profile from "../LayOut/Dashboard/Profile";
 import ManageUser from "../LayOut/Dashboard/ManageUser";
+import MyWishlist from "../LayOut/Dashboard/MyWishlist";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path:"/dashboard/manageusers",
                 element: <ManageUser></ManageUser>,
+            },
+            {
+                path:"/dashboard/mywishlist",
+                element: <MyWishlist></MyWishlist>,
             },
             {
                 path:"/dashboard/profile",
