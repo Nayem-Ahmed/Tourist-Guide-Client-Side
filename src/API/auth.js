@@ -3,7 +3,9 @@ import axiosPublic from "./axiosPublic"
 // Save user data in database
 export const saveUser = async (user) => {
     const currentUser = {
+        name:user?.displayName,
         email: user?.email,
+        photo: user?.photoURL,
         role: 'tourist',
     }
     const { data } = await axiosPublic.put(`/users/${user?.email}`, currentUser)

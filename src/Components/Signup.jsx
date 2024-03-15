@@ -4,10 +4,10 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import signup from '../assets/signup.avif';
 import signupbg from '../assets/signupbg.avif';
-import useAuth from '../API/useAuth';
 import { imgUpload } from '../API/imgbb';
 import { toast } from 'react-toastify';
 import { saveUser } from '../API/auth';
+import useAuth from '../API/useAuth';
 
 const Signup = () => {
     const { createUser, updateUserProfile, signInWithGoogle } = useAuth();
@@ -22,9 +22,10 @@ const Signup = () => {
             const { user } = await createUser(data?.email, data?.password);
             // Assuming imgUpload is a function that handles image upload
             const imageData = await imgUpload(data.photo[0]);
-            console.log(imageData);
+            console.log(user);
             // Update user profile with additional data (name, photo, etc.
-            await updateUserProfile(data?.firstName, imageData?.data?.url);
+            const {photo} = await updateUserProfile(data?.firstName, imageData?.data?.url);
+            console.log(photo);
             // save user data in Database
             const sendUserData = await saveUser(user)
             toast.success('Sign Up successful');

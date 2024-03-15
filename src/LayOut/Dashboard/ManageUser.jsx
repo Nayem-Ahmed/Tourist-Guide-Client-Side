@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../API/useAuth';
 import { getAllUsers } from '../../API/auth';
 
 const ManageUser = () => {
-    const { user } = useAuth();
     const [users, setUsers] = useState([]);
     console.log(users);
 
@@ -38,20 +36,18 @@ const ManageUser = () => {
 
                     {users?.map((userone, index) => (
                         <tr key={index}>
-                            <td>{user?.displayName}</td>
-                            {/* user asche authprovider theke */}
+                            <td>{userone?.name}</td>
                             <td>{userone?.email}</td>
                             <td>
                                 <div className="flex items-center gap-3">
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
-                                            <img src={user?.photoURL} alt="Avatar" />
+                                            <img src={userone?.photo} alt="Avatar" />
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td>{userone?.role}</td>
-                            {/* usersone asche map kore */}
                             <td>
                                 <button onClick={() => makeAdmin(user.id)} className="btn btn-ghost btn-xs bg-[#ff7550]">Make Admin</button>
                             </td>
