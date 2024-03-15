@@ -4,17 +4,31 @@ import 'react-tabs/style/react-tabs.css';
 import axiosPublic from '../../../API/axiosPublic';
 import { FaRegHeart } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import { AddWishlistPost } from '../../../API/package';
+import { toast } from 'react-toastify';
 
 
 const TravelGuide = () => {
-    const [packages, setPackages] = useState([]);
+    const [packag, setPackages] = useState([]);
 
     useEffect(() => {
         axiosPublic.get('/addpackage')
             .then(response => setPackages(response.data))
             .catch(error => console.error('Error fetching packages:', error));
-        console.log(packages);
+        console.log(packag);
     }, []);
+
+    const handleWishlist = async (packagee) => {
+        try {
+            const { _id, ...dataWithoutId } = packagee;
+            const wish = await AddWishlistPost(dataWithoutId);
+            toast('Added Wishlist Successfull')
+            console.log(wish);
+
+        } catch (error) {
+            console.error('Error in handleWishlist:', error);
+        }
+    }
     return (
         <div>
             <Tabs className="mx-auto block text-center mt-5 mb-10">
@@ -49,11 +63,11 @@ const TravelGuide = () => {
                 <TabPanel>
                     {/* Package list */}
                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-5 ">
-                        {packages.map((packages, index) => (
+                        {packag.map((packages, index) => (
                             <div key={index} className="card card-compact  bg-base-100 shadow-md rounded-md group">
                                 <figure><img className='relative w-full md:h-56 group-hover:scale-110  transition duration-300 ease-in-out' src={packages.TouristImage} alt={packages.tourType} /></figure>
                                 <button type='button' style={{ background: 'rgba(255, 255, 255, 0.30)', padding: '0.5rem', position: 'absolute', right: '5px', top: '3px', borderRadius: '2px', zIndex: '1' }} className='hover:text-[#ff7550]'>
-                                    <FaRegHeart className='text-2xl' />
+                                    <button type='button' onClick={() => handleWishlist(packages)}> <FaRegHeart className='text-2xl' /></button>
                                 </button>
                                 <div className="card-body">
                                     <h2 className="card-title text-sm text-[#2c3e50]">Tour Type : {packages.tourType}</h2>
