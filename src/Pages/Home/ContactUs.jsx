@@ -20,7 +20,7 @@ const ContactUs = () => {
     }, []);
 
     return (
-        <div className='mt-24'>
+        <div className='mt-6'>
         <div className="relative h-screen">
             {/* Background Image with Parallax Effect */}
             <div

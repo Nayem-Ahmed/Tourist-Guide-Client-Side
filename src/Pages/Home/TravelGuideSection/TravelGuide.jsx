@@ -8,7 +8,6 @@ import { AddWishlistPost } from '../../../API/package';
 import { toast } from 'react-toastify';
 import useAuth from '../../../API/useAuth';
 
-
 const TravelGuide = () => {
     const { user } = useAuth();
     const [packag, setPackages] = useState([]);
@@ -91,7 +90,7 @@ const TravelGuide = () => {
                 </TabPanel>
 
                 <TabPanel>
-                    <div className='flex flex-col md:flex-row gap-5 p-5'>
+                    <div className=' grid grid-cols-6 gap-5 p-5'>
 
                     {packag.map((guide, index) => (
                         <div key={index} className=" bg-base-100 shadow-md p-5">
