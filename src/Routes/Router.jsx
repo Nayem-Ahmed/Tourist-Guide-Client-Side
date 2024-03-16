@@ -13,6 +13,7 @@ import Profile from "../LayOut/Dashboard/Profile";
 import ManageUser from "../LayOut/Dashboard/ManageUser";
 import MyWishlist from "../LayOut/Dashboard/MyWishlist";
 import ContactUs from "../Pages/Home/ContactUs";
+import TourtypesDetails from "../Pages/Home/TourtypesDetails";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
                 path: "/packageDetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:5000/addpackage/${params.id}`),
                 element: <PackageDetails></PackageDetails>,
+            },
+            {
+                path: "/tourtypedetails/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/addpackage/${params.id}`),
+                element: <TourtypesDetails></TourtypesDetails>,
             },
             {
                 path: "/contactus",

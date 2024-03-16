@@ -5,6 +5,10 @@ export const AddPackagePost = async (packagedata) => {
     const { addData } = await axiosPublic.post('/addpackage', packagedata)
     return addData;
 }
+ export const  getTyperelatedData=async(id)=>{
+    const{data}=await axiosPublic(`/tourtypebtdata/${id}`);
+    return data;
+}
 // wishlist
 export const AddWishlistPost = async (wishlistdata) => {
     const { addData } = await axiosPublic.post('/wishlist', wishlistdata)

@@ -1,0 +1,23 @@
+[
+    {
+      "tourtypeimage": "https://i.ibb.co/vqTfNWg/beach.webp",
+      "tourtype": "Beach Vacation"
+    },
+    {
+      "tourtypeimage": "https://i.ibb.co/7rQRWcg/mount.webp",
+      "tourtype": "Mountain Trekking"
+    },
+    {
+      "tourtypeimage": "https://i.ibb.co/qBkBh2L/city.webp",
+      "tourtype": "City Tour"
+    },
+    {
+      "tourtypeimage": "https://i.ibb.co/BTrrzvt/ki.webp",
+      "tourtype": "Safari Adventure"
+    },
+    {
+      "tourtypeimage": "https://i.ibb.co/1fZ5B17/history.webp",
+      "tourtype": "Historical Exploration"
+    }
+  ]
+  

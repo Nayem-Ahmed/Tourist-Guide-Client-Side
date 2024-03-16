@@ -94,7 +94,7 @@ const TravelGuide = () => {
                     <div className='flex flex-col md:flex-row gap-5 p-5'>
 
                     {packag.map((guide, index) => (
-                        <div className=" bg-base-100 shadow-md p-5">
+                        <div key={index} className=" bg-base-100 shadow-md p-5">
                             <div className=" ">
                                 <img className='w-40 h-28 m-auto rounded-sm mb-3' src={guide.guideimage} alt="" />
                                 <h2 className='text-gray-500'>{guide.tourGuideName}</h2>

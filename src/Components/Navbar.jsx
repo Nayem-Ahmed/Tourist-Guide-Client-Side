@@ -18,7 +18,7 @@ const Navbar = () => {
                         <li><Link to='/blogs'>Blogs</Link></li>
                         <li><Link to='/aboutus'>About Us</Link></li>
                         <li>
-                            <a>Parent</a>
+                            <a>Pages</a>
                             <ul className="p-2">
                                 <li><Link to='/contactus'>Contact Us</Link></li>
                                 <li><a>Submenu 2</a></li>

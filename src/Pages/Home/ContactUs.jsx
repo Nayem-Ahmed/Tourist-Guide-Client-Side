@@ -2,6 +2,8 @@ import React from 'react';
 import contact from '../../assets/contact.jpg';
 import { Link } from 'react-router-dom';
 import m from '../../assets/m.png'
+import loca from '../../assets/loca.png'
+import care from '../../assets/care.png'
 
 const ContactUs = () => {
     const handleScroll = () => {
@@ -18,7 +20,7 @@ const ContactUs = () => {
     }, []);
 
     return (
-        <div>
+        <div className='mt-24'>
         <div className="relative h-screen">
             {/* Background Image with Parallax Effect */}
             <div
@@ -39,7 +41,7 @@ const ContactUs = () => {
                 </div>
             </div>
         </div>
-        <div className=' flex gap-8 justify-center p-5'>
+        <div className=' flex flex-col md:flex-row gap-8 justify-center p-5'>
             <div className='p-5 text-center  border-r-2'>
                 <img className='mb-1 m-auto' src={m} alt="" />
                 <h1 className='text-xl font-bold mb-3'>Get In Touch</h1>
@@ -48,13 +50,13 @@ const ContactUs = () => {
                 <p className='mt-2 font-medium text-[#ff7550]'>hello@Travleu.com</p>
             </div>
             <div className='p-5  text-center border-r-2'>
-                <img className='mb-1 m-auto' src={m} alt="" />
+                <img className='mb-1 m-auto' src={loca} alt="" />
                 <h1 className='text-xl font-bold mb-3'>Visit Our Location</h1>
                 <span className='text-gray-500'>Manhatta Hall Veerpolder 7 2361<br></br> Empor Ltd 1258, Melbourne, Australia</span>
                 <p className='mt-2 font-medium text-[#ff7550]'>hello@Travleu.com</p>
             </div>
             <div className='p-5 text-center border-r-2'>
-                <img className='mb-1 m-auto' src={m} alt="" />
+                <img className='mb-1 m-auto' src={care} alt="" />
                 <h1 className='text-xl font-bold mb-3'>Looking For A Career?</h1>
                 <span className='text-gray-500'>perspiciatis unde omnis iste natus<br></br> error sit voluptatem accusantium.</span>
                 <p className='mt-2 font-medium text-[#ff7550]'>careers@travleu.com</p>
