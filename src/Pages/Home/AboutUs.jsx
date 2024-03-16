@@ -5,13 +5,14 @@ import why from '../../assets/why.webp'
 import { MdOutlineHighQuality } from "react-icons/md";
 import { GiSkills } from "react-icons/gi";
 import { TbPackages } from "react-icons/tb";
+import CallToAction from './CallToAction ';
 
 
 
 
 const AboutUs = () => {
     return (
-        <div>
+        <div className='my-8'>
             <div className="bg-cover bg-center h-96"
                 style={{
                     backgroundImage: `url(${about})`,
@@ -23,9 +24,10 @@ const AboutUs = () => {
                     <Link to="/" className="text-lg mt-4"><span className='text-yellow-500'>Home </span> | <span  >About us</span></Link>
                 </div>
             </div>
+            <CallToAction></CallToAction>
             <div className='flex flex-col-reverse md:flex-row justify-between items-center gap-6 p-5'>
-                <img className='w-80 h-80 rounded-full' src={why} alt="" />
-                 <div className='basis-2/3'>
+                <img className='rounded-md' src={why} alt="" />
+                 <div className='basis-1/2'>
                     <h1 className='text-2xl font-medium mb-6'>Why <span className='text-[#fee133]'>Choose</span> Us</h1>
                     <p className='mb-5 text-gray-500'>Vestibulum in accumsan magna mauri tincidunt turpisligula semper namc orci magec dia commodo viverra eget et leo curabitur dia consequat condimentum nunc molestie feugiat elit proin id viverra diam massa aliquam velit.</p>
 
