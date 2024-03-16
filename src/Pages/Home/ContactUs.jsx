@@ -37,7 +37,7 @@ const ContactUs = () => {
                 <div className="text-center">
                     <h1 className="text-4xl font-bold">Contact Us</h1>
                     <p style={{ fontFamily: 'Caveat' }} className="text-xl font-serif mb-3 mt-4">Donec Id Elit Non Mi Porta Gravida At Eget Metus</p>
-                    <Link to="/" className="text-lg mt-4">Home / <span className="text-gray-400 ">contact us</span></Link>
+                    <Link to="/" className="text-lg mt-4"><span className='text-yellow-500'>Home </span> | <span className="">contact us</span></Link>
                 </div>
             </div>
         </div>

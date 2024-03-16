@@ -14,6 +14,7 @@ import ManageUser from "../LayOut/Dashboard/ManageUser";
 import MyWishlist from "../LayOut/Dashboard/MyWishlist";
 import ContactUs from "../Pages/Home/ContactUs";
 import TourtypesDetails from "../Pages/Home/TourtypesDetails";
+import AboutUs from "../Pages/Home/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: "/contactus",
                 element: <ContactUs></ContactUs>,
+            },
+            {
+                path: "/aboutus",
+                element: <AboutUs></AboutUs>,
             },
             {
                 path: "/signin",

@@ -1,5 +1,4 @@
 import React from 'react';
-import mp4 from '../../../assets/vedio.mp4'; // Import the MP4 video file
 import mp42 from '../../../assets/vedi.mp4'; // Import the MP4 video file
 
 const Banner = () => {
