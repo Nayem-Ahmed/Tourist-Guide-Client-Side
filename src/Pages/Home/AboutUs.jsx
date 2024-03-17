@@ -12,8 +12,8 @@ import CallToAction from './CallToAction ';
 
 const AboutUs = () => {
     return (
-        <div className='my-8'>
-            <div className="bg-cover bg-center h-96"
+        <div className=''>
+            <div className="bg-cover bg-center h-96 "
                 style={{
                     backgroundImage: `url(${about})`,
                     backgroundSize: 'cover', // Ensures the image covers the entire container
@@ -21,7 +21,7 @@ const AboutUs = () => {
                 }}>
                 <div className="flex flex-col justify-center items-center h-full text-white">
                     <h1 className="text-4xl font-bold">About Us</h1>
-                    <Link to="/" className="text-lg mt-4"><span className='text-yellow-500'>Home </span> | <span  >About us</span></Link>
+                    <Link to="/" className="text-lg mt-4"><span className='text-[#fee133]'>Home </span> | <span  >About us</span></Link>
                 </div>
             </div>
             <CallToAction></CallToAction>
@@ -31,9 +31,9 @@ const AboutUs = () => {
                     <h1 className='text-2xl font-medium mb-6'>Why <span className='text-[#fee133]'>Choose</span> Us</h1>
                     <p className='mb-5 text-gray-500'>Vestibulum in accumsan magna mauri tincidunt turpisligula semper namc orci magec dia commodo viverra eget et leo curabitur dia consequat condimentum nunc molestie feugiat elit proin id viverra diam massa aliquam velit.</p>
 
-                    <p className='flex items-center gap-2 mb-4'><MdOutlineHighQuality className='text-2xl'></MdOutlineHighQuality>High Quality Service</p>
-                    <p className='flex items-center gap-2 mb-4'><GiSkills className='text-2xl'></GiSkills>Experienced Guides</p>
-                    <p className='flex items-center gap-2'><TbPackages className='text-2xl'></TbPackages>Flexible Packages</p>
+                    <p className='flex items-center gap-2 mb-4'><MdOutlineHighQuality className='text-2xl text-[#fee133]'></MdOutlineHighQuality>High Quality Service</p>
+                    <p className='flex items-center gap-2 mb-4 '><GiSkills className='text-2xl text-[#fee133]'></GiSkills>Experienced Guides</p>
+                    <p className='flex items-center gap-2'><TbPackages className='text-2xl text-[#fee133]'></TbPackages>Flexible Packages</p>
                  </div>
              </div>
         </div>

@@ -15,6 +15,7 @@ import MyWishlist from "../LayOut/Dashboard/MyWishlist";
 import ContactUs from "../Pages/Home/ContactUs";
 import TourtypesDetails from "../Pages/Home/TourtypesDetails";
 import AboutUs from "../Pages/Home/AboutUs";
+import TourTypeDataDetails from "../Pages/Home/TourTypeDataDetails";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
                 path: "/tourtypedetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:5000/addpackage/${params.id}`),
                 element: <TourtypesDetails></TourtypesDetails>,
+            },
+            {
+                path: "/tourtypedetails/:id/tourtype-Datatadetails/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/addpackage/${params.id}`),
+                element: <TourTypeDataDetails></TourTypeDataDetails>,
             },
             {
                 path: "/contactus",

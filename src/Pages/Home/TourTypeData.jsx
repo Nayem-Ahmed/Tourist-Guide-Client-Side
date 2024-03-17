@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getTyperelatedData } from '../../API/package';
 import Loader from '../../Components/Loader';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const TourTypeData = () => {
     const { id } = useParams(); // Get the ID parameter from the URL
@@ -34,16 +34,19 @@ const TourTypeData = () => {
 
     // Render product and related products here
     return (
-        <div className='grid gap-6 grid-cols-5 mt-10'>
+        <div className='grid gap-5 grid-cols-3 mt-10'>
             {relatedProducts.map(relatedType => (
                 <div key={relatedType._id} className="card card-compact rounded-sm  bg-base-100 shadow-xl">
                     <figure><img className='w-full h-56' src={relatedType.TouristImage} alt=" " /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{relatedType.tourType}</h2>
-                        <p>{}</p>
-                        {/* <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
-                        </div> */}
+                        <p>{relatedType.tripTitle}</p>
+                        <p className="text-2xl text-[#ff7550] font-semibold">${relatedType.price}</p>
+                        <div className="card-actions ">
+                            <Link to={`tourtype-Datatadetails/${relatedType._id}`}>
+                                <button className="bg-[#ff7550] px-3 py-1 rounded-md text-white">View Package</button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             ))}

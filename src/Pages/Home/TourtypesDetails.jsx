@@ -1,27 +1,39 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import TourTypeData from './TourTypeData';
 
 const TourtypesDetails = () => {
     const tourdetils = useLoaderData();
     return (
-        <div className='p-5'>
-
-        <div className="card w-96 bg-base-100 shadow-xl rounded-sm">
-            <figure><img className='h-64 w-full' src={tourdetils.TouristImage} alt=" " /></figure>
-            <div className="card-body">
-                <h2 className="card-title">{tourdetils.tourType}</h2>
-                <p>{tourdetils.tripTitle}</p>
-                <p>{tourdetils.tourGuideName}</p>
-                <p>{tourdetils.tourDate}</p>
-                <p>{tourdetils.price}</p>
-                <div className=" ">
-                    <p>{tourdetils.tourGuideName}</p>
-                    <img className='rounded-full h-20 w-20' src={tourdetils.guideimage} alt="" />
+        <div className='flex gap-5 p-5'>
+            <div className='basis-1/2'>
+                <div className="card  bg-white shadow-lg rounded-lg overflow-hidden">
+                    <figure>
+                        <img className='h-64 w-full object-cover rounded-t-lg' src={tourdetils.TouristImage} alt="Tourist Destination" />
+                    </figure>
+                    <div className="card-body p-6">
+                        <h2 className="text-2xl font-semibold mb-2">{tourdetils.tourType}</h2>
+                        <p className="text-gray-600 mb-4">{tourdetils.tripTitle}</p>
+                        <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center">
+                                <img className='rounded-full h-12 w-12 object-cover mr-4 border-2 border-[#ff7550]' src={tourdetils.guideimage} alt="Tour Guide" />
+                                <div>
+                                    <p className="text-gray-800 font-semibold">{tourdetils.tourGuideName}</p>
+                                    <p className="text-gray-600">{tourdetils.tourDate}</p>
+                                </div>
+                            </div>
+                            <p className="text-2xl text-[#ff7550] font-semibold">${tourdetils.price}</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-        </div>
-        <TourTypeData></TourTypeData>
+
+            <div>
+
+                <TourTypeData></TourTypeData>
+            </div>
+
         </div>
     );
 };

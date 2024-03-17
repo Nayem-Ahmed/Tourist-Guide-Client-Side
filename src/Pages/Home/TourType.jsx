@@ -40,7 +40,6 @@ import { Pagination, Navigation } from 'swiper/modules';
 
 const TourType = () => {
     const [tourtype, setTourtype] = useState([]);
-
     useEffect(() => {
         axiosPublic.get('/addpackage')
             .then(response => setTourtype(response.data))
@@ -57,10 +56,10 @@ const TourType = () => {
     // 
 
     return (
-        <div className="bg-cover bg-center min-h-screen p-10" style={{ backgroundImage: `url(${bggg})` }}>
+        <div className="bg-cover bg-center min-h-screen p-10 mb-8" style={{ backgroundImage: `url(${bggg})` }}>
             <div className="text-center  mb-6">
-                <span className="">Take a Look at Our</span>
-                <h1 className="text-3xl font-medium mt-2">MOST POPULAR TOURS</h1>
+                <span className="text-[#ff7550]">Take a Look at Our</span>
+                <h1 className="text-3xl text-white font-medium mt-2 ">MOST POPULAR TOURS</h1>
             </div>
 
             <div className='  p-5'>
@@ -86,7 +85,7 @@ const TourType = () => {
                                     <h2 className="text-lg font-semibold mb-2">{tour.tourType}</h2>
                                     <p className="text-sm text-gray-600">{tour.tripTitle}</p>
                                     <div className="mt-4">
-                                        <span className="text-lg font-bold">${tour.price}</span>
+                                        <span className="text-lg text-[#ff7550] font-bold">${tour.price}</span>
                                         <span className="ml-2 text-sm text-gray-500">per person</span>
                                     </div>
                                 </div>
