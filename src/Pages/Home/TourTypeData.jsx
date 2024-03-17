@@ -34,10 +34,10 @@ const TourTypeData = () => {
 
     // Render product and related products here
     return (
-        <div className='grid gap-5 grid-cols-3 mt-10'>
+        <div className='grid gap-5 md:grid-cols-3 mt-10'>
             {relatedProducts.map(relatedType => (
                 <div key={relatedType._id} className="card card-compact rounded-sm  bg-base-100 shadow-xl">
-                    <figure><img className='w-full h-56' src={relatedType.TouristImage} alt=" " /></figure>
+                    <figure><img className='w-full h-64' src={relatedType.TouristImage} alt=" " /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{relatedType.tourType}</h2>
                         <p>{relatedType.tripTitle}</p>

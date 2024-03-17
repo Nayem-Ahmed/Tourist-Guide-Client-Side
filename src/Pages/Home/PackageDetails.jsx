@@ -79,32 +79,34 @@ const Packagedetails = () => {
     return (
         <div>
             <div style={{ backgroundImage: `url(${details})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '50vh', padding: '30px', backgroundAttachment: "fixed" }}>
-                <h1 className="text-lg flex justify-end mr-0 text-white "><span className='bg-[#ff7550] px-10 py-3'>Price: ${packagedetails.price}</span> </h1>
+                <h1 className="text-lg flex justify-end mr-0 text-white "><span className='bg-[#ff7550] md:px-10 md:py-3 p-1'>Price: ${packagedetails.price}</span> </h1>
                 <div className="flex flex-col justify-center items-center  text-white">
-                    <h1 className="text-4xl font-bold">Package Details</h1>
+                    <h1 className="md:text-4xl text-2xl font-bold">Package Details</h1>
                     <Link to="/" className="text-lg mt-4"><span className='text-[#fee133]'>Home </span> |  {packagedetails.tourType}</Link>
                 </div>
             </div>
             <AboutTourSection />
             <div>
-                <div className='flex flex-col-reverse md:flex-row justify-between my-2 gap-2 md:w-10/12 m-auto rounded-md bg-white'>
-                    <div className='  md:p-10 p-5 text-center md:text-left'>
+                <div className='flex flex-col-reverse md:flex-row justify-between my-2 gap-2 md:w-10/12 m-auto rounded-md bg-white p-2'>
+                    <div className=' md:p-10 p-5 text-center md:text-left md:shadow-2xl'>
                         <h2 className="text-2xl font-medium mb-3 ">{packagedetails.tripTitle}</h2>
                         <p className="text-lg mb-2 text-gray-500">Tour Type : {packagedetails.tourType}</p>
                         <p className="text-lg mb-2 text-gray-500">Tour Date : {packagedetails.tourDate}</p>
-                        <p className="text-lg mb-2 text-gray-500">Price: <span className='text-[#ff7550] font-medium'>${packagedetails.price}</span></p>
-                        <div className='flex gap-2 mt-5 justify-center md:justify-start'>
+                        <p className="text-lg text-gray-500">Price: <span className='text-[#ff7550] font-medium'>${packagedetails.price}</span></p>
+                        <div className="divider">Tour Guide</div>
+                        <div className='flex gap-2 mt-2 justify-center md:justify-start'>
                             <img src={packagedetails.guideimage} alt="Tour Guide" className="w-14 h-14 rounded-full mb-4" />
                             <p className="text-md text-gray-500 relative mt-4"> {packagedetails.tourGuideName}</p>
                         </div>
-                        <button type='button' onClick={handleBookNowClick} className='bg-[#ff7550] py-2 mt-5 text-white px-3 rounded-sm hover:bg-black'>
+                        <button type='button' onClick={handleBookNowClick} className='bg-[#ff7550] py-2 text-white px-3 rounded-sm hover:bg-black shadow-2xl w-full'>
                             BOOK NOW !
                         </button>
                     </div>
                     <div className=''>
-                        <img className='w-full md:h-96 rounded-sm shadow-md' src={packagedetails.TouristImage} alt="" />
+                        <img className='w-full md:h-96 rounded-md shadow-md' src={packagedetails.TouristImage} alt="" />
                     </div>
                 </div>
+                {/* BOOK      From  */}
                 {showForm && (
                     <form onSubmit={handleSubmit(onSubmit)} className="bg-white mx-auto shadow-md rounded px-8 pt-4 pb-8  ">
                         <div className="md:grid md:grid-cols-2 gap-4 mb-4">

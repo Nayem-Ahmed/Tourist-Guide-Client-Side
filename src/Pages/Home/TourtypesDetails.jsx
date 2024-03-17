@@ -5,11 +5,11 @@ import TourTypeData from './TourTypeData';
 const TourtypesDetails = () => {
     const tourdetils = useLoaderData();
     return (
-        <div className='flex gap-5 p-5'>
-            <div className='basis-1/2'>
-                <div className="card  bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className='flex flex-col gap-5 p-5'>
+            <div className=' '>
+                <div className="card  bg-white shadow-lg rounded-sm overflow-hidden">
                     <figure>
-                        <img className='h-64 w-full object-cover rounded-t-lg' src={tourdetils.TouristImage} alt="Tourist Destination" />
+                        <img className='h-96 w-full  object-cover object-center' src={tourdetils.TouristImage} alt="Tourist Destination" />
                     </figure>
                     <div className="card-body p-6">
                         <h2 className="text-2xl font-semibold mb-2">{tourdetils.tourType}</h2>
@@ -26,7 +26,6 @@ const TourtypesDetails = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div>

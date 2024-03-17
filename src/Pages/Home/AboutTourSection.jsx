@@ -70,7 +70,7 @@ const AboutTourSection = () => {
 
     return (
         <div className='p-5'>
-            <Tabs className="md:w-8/12  mb-10 p-5 border" selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
+            <Tabs className="md:w-11/12  mb-10 p-5 border-2 shadow-sm" selectedIndex={activeTab} onSelect={(index) => setActiveTab(index)}>
                 <TabList className="flex gap-4 mb-5">
                     <Tab style={activeTab === 0 ? { backgroundColor: 'tomato', color: 'white', padding: '10px', borderRadius: '20px', cursor: 'pointer' } : { backgroundColor: 'gray', padding: '10px', borderRadius: '20px', cursor: 'pointer' }}>DESCRIPTION</Tab>
                     <Tab style={activeTab === 1 ? { backgroundColor: 'tomato', color: 'white', padding: '10px', borderRadius: '20px', cursor: 'pointer' } : { backgroundColor: 'gray', padding: '10px', borderRadius: '20px', cursor: 'pointer' }}>ITINERARY</Tab>
@@ -117,8 +117,8 @@ const AboutTourSection = () => {
                 </TabPanel>
                 <TabPanel>
                     <div className="p-4 flex gap-4">
-                        <div className='w-10 h-10 bg-[#ff7550] rounded-full text-center text-white text-2xl'>
-                            1
+                        <div>
+                            <h1  className='w-10 h-10 bg-[#ff7550] rounded-full text-center text-white text-2xl'>1</h1>
                         </div>
                         <div>
                             <h1 className='font-medium text-2xl mb-3'>Day 1: Departure</h1>
