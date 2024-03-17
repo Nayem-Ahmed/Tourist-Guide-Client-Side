@@ -4,6 +4,7 @@ import TravelGuide from './TravelGuideSection/TravelGuide';
 import ContactUs from './ContactUs';
 import TourType from './TourType';
 import AboutUs from './AboutUs';
+import Blog from './Blog';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <TourType></TourType>
             <AboutUs></AboutUs>
             <ContactUs></ContactUs>
+            <Blog></Blog>
         </div>
     );
 };

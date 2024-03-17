@@ -1,13 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import details from '../../assets/tab1.jpg';
-
+// style={{ backgroundImage: `url(${details})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', padding: '30px', backgroundAttachment: "fixed" }}
 
 const TourTypeDataDetails = () => {
     const tourTypesDataDetails = useLoaderData();
     console.log(tourTypesDataDetails);
     return (
-        <div style={{ backgroundImage: `url(${details})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh', padding: '30px', backgroundAttachment: "fixed" }}>
+        <div>
             <div className='flex flex-col-reverse md:flex-row justify-between  gap-2 md:w-10/12 m-auto rounded-md bg-white shadow-md'>
                 <div className='flex-1 md:p-10 p-5 text-center md:text-left'>
                     <h2 className="text-2xl font-medium mb-3 ">{tourTypesDataDetails.tripTitle}</h2>
