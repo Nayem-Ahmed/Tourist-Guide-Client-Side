@@ -45,19 +45,6 @@ const AddPackage = () => {
             <div className="flex justify-center items-center mt-2">
                 <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-md rounded px-8 pt-4 pb-8 md:w-4/6">
                     <div className="md:grid md:grid-cols-2 gap-4 mb-4">
-                        {/* Tourist Name Input */}
-                        {/* <div>
-                            <label htmlFor="name" className="block text-gray- 600 text-sm font-medium mb-2">
-                                Tourist Name
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                {...register('name', { required: 'Tourist Name is required' })}
-                                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray- 600 leading-tight focus:outline-none focus:shadow-outline ${errors.name ? 'border-red-500' : ''}`}
-                            />
-                            {errors.name && <p className="text-red-500 text-xs italic">{errors.name.message}</p>}
-                        </div> */}
                         <div className="mb-4">
                             <label htmlFor="tourType" className="block text-gray-600 text-sm font-medium mb-2">
                                 Tour Type
@@ -80,21 +67,6 @@ const AddPackage = () => {
                             </div>
                             {errors.tourType && <p className="text-red-500 text-xs italic">{errors.tourType.message}</p>}
                         </div>
-
-
-                        {/* Email Input */}
-                        {/* <div>
-                            <label htmlFor="email" className="block text-gray- 600 text-sm font-medium mb-2">
-                                Email
-                            </label>
-                            <input
-                                type="text"
-                                id="email"
-                                {...register('email', { required: 'Email is required' })}
-                                className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray- 600 leading-tight focus:outline-none focus:shadow-outline ${errors.email ? 'border-red-500' : ''}`}
-                            />
-                            {errors.email && <p className="text-red-500 text-xs italic">{errors.email.message}</p>}
-                        </div> */}
                         {/* TripTitle Input */}
                         <div className="mb-4">
                             <label htmlFor="tripTitle" className="block text-gray- 600 text-sm font-medium mb-2">
