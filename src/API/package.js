@@ -26,3 +26,8 @@ export const AddBookingPost = async (book) => {
     const { addData } = await axiosPublic.post('/booking', book)
     return addData;
 }
+// Get wishlists by params
+export const getBooking = async (email) => {
+    const { data } = await axiosPublic(`/booking/${email}`)
+    return data;
+}

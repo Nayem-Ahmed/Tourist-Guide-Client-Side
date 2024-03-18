@@ -5,6 +5,7 @@ import useAuth from '../../API/useAuth';
 const MyWishlist = () => {
     const { user } = useAuth();
     const [wishlistData, setWishlistData] = useState([]);
+    console.log(wishlistData);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,36 +31,42 @@ const MyWishlist = () => {
 
     return (
         <div className="overflow-x-auto">
-        <table className="table">
-            {/* head */}
-            <thead>
-                <tr>
-                    <th>Tour Type</th>
-                    <th>Tour Guide Name</th>
-                    <th>Delete</th>
-                    <th>Visit Details</th>
-                </tr>
-            </thead>
-            <tbody>
+            {wishlistData.length === 0 ? (
+                <p className="text-center text-2xl my-9 text-gray-500">No wishlist added</p>
 
-                {wishlistData?.map((wishlist, index) => (
-                    <tr key={index}>
-                        <td>{wishlist?.tourType}</td>
-                        <td>{wishlist?.tourGuideName}</td>
-                        <td>
-                        <button onClick={() => handleDelete(wishlist.id)} className="btn btn-ghost btn-xs bg-red-500 mr-2">Delete</button>
-                        </td>
-                        <td>
-                        <button onClick={() => handleVisitDetails(wishlist.packageId)} className="btn btn-ghost btn-xs bg-blue-500">Visit Details</button>
-                        </td>
+            ) : (
+
+            <table className="table">
+                {/* head */}
+                <thead>
+                    <tr>
+                        <th>Tour Type</th>
+                        <th>Tour Guide Name</th>
+                        <th>Delete</th>
+                        <th>Visit Details</th>
                     </tr>
-                ))}
+                </thead>
+                <tbody>
 
-            </tbody>
+                    {wishlistData?.map((wishlist, index) => (
+                        <tr key={index}>
+                            <td>{wishlist?.tourType}</td>
+                            <td>{wishlist?.tourGuideName}</td>
+                            <td>
+                                <button onClick={() => handleDelete(wishlist.id)} className="btn btn-ghost btn-xs bg-red-500 mr-2">Delete</button>
+                            </td>
+                            <td>
+                                <button onClick={() => handleVisitDetails(wishlist.packageId)} className="btn btn-ghost btn-xs bg-blue-500">Visit Details</button>
+                            </td>
+                        </tr>
+                    ))}
+
+                </tbody>
 
 
-        </table>
-    </div>
+            </table>
+            )}
+        </div>
     );
 };
 

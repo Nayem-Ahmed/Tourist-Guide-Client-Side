@@ -51,7 +51,7 @@
 // export default packagedetails;
 
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import details from '../../assets/tab1.jpg';
 import AboutTourSection from './AboutTourSection';
 import { useForm } from 'react-hook-form';
@@ -64,6 +64,7 @@ const Packagedetails = () => {
     const { user } = useAuth();
     const packagedetails = useLoaderData();
     const [showForm, setShowForm] = useState(false);
+    const navigate = useNavigate();
 
     const handleBookNowClick = () => {
         setShowForm(true);
@@ -82,7 +83,7 @@ const Packagedetails = () => {
             };
             await AddBookingPost(updatedData)
             toast('Add Booking Successfull')
-            //navigate('/dashboard/manage')
+            navigate('/dashboard/mybookings')
             reset();
 
         } catch (error) {
@@ -139,8 +140,6 @@ const Packagedetails = () => {
                                 {errors.name && <p className="text-red-500 text-xs italic">{errors.name.message}</p>}
                             </div>
 
-
-
                             {/* Email Input */}
                             <div>
                                 <label htmlFor="email" className="block text-gray- 600 text-sm font-medium mb-2">
@@ -172,6 +171,23 @@ const Packagedetails = () => {
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray- 600 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </div>
+                        <div className="md:grid md:grid-cols-2 gap-4 mb-4">
+
+                        {/*  tour type*/}
+                        <div className="mb-4">
+                            <label htmlFor="tourType" className="block text-gray- 600 text-sm font-medium mb-2">
+                                {/* <IoMdAttach className="inline mr-2" /> */}
+                                Tour Type
+                            </label>
+                            <input
+                                type="text"
+                                id="tourType"
+                                value={packagedetails.tourType}
+                                {...register("tourType")}
+                                required
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray- 600 leading-tight focus:outline-none focus:shadow-outline"
+                            />
+                        </div>
 
                         {/* Price Input */}
                         <div className="mb-4">
@@ -191,7 +207,8 @@ const Packagedetails = () => {
 
                             {errors.price && <p className="text-red-500 text-xs italic">{errors.price.message}</p>}
                         </div>
-
+                        </div>
+                        <div className="md:grid md:grid-cols-2 gap-4 mb-4">
 
                         {/* Tour Guide Name Input */}
                         <div className="mb-4">
@@ -232,6 +249,9 @@ const Packagedetails = () => {
                             />
                             {errors.tourDate && <p className="text-red-500 text-xs italic">{errors.tourDate.message}</p>}
                         </div>
+                        </div>
+
+
 
                         {/* Submit Button */}
                         <div className="mb-6">
