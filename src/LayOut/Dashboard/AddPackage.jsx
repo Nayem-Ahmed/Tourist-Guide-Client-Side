@@ -110,7 +110,10 @@ const AddPackage = () => {
                             >
                                 <option value="">Select Tour Guide</option>
                                 <option value="Mary Johnson">Mary Johnson</option>
-                                <option value="Juan Perez">Juan Perez</option>
+                                <option value="Juan Perez">Alice Smith</option>
+                                <option value="Juan Perez">David Brown</option>
+                                <option value="Juan Perez">Emily White</option>
+                                <option value="Juan Perez">John Doe</option>
                                 {/* Add more options here */}
                             </select>
                             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray- 600">

@@ -16,6 +16,10 @@ import ContactUs from "../Pages/Home/ContactUs";
 import TourtypesDetails from "../Pages/Home/TourtypesDetails";
 import AboutUs from "../Pages/Home/AboutUs";
 import TourTypeDataDetails from "../Pages/Home/TourTypeDataDetails";
+import Blog from "../Pages/Home/Blog";
+import BlogDetails from "../Pages/Home/BlogDetails";
+import BlogNavbar from "../Pages/Home/BlogNavbar";
+import Privetroute from "../Routes/Privetroute";
 
 const router = createBrowserRouter([
     {
@@ -30,17 +34,17 @@ const router = createBrowserRouter([
             {
                 path: "/packageDetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:5000/addpackage/${params.id}`),
-                element: <PackageDetails></PackageDetails>,
+                element: <Privetroute><PackageDetails></PackageDetails></Privetroute>,
             },
             {
                 path: "/tourtypedetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:5000/addpackage/${params.id}`),
-                element: <TourtypesDetails></TourtypesDetails>,
+                element: <Privetrout><TourtypesDetails></TourtypesDetails></Privetrout>,
             },
             {
                 path: "/tourtypedetails/:id/tourtype-Datatadetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:5000/addpackage/${params.id}`),
-                element: <TourTypeDataDetails></TourTypeDataDetails>,
+                element: <Privetrout><TourTypeDataDetails></TourTypeDataDetails></Privetrout>,
             },
             {
                 path: "/contactus",
@@ -49,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path: "/aboutus",
                 element: <AboutUs></AboutUs>,
+            },
+            {
+                path: "/blogs",
+                element: <BlogNavbar></BlogNavbar>,
             },
             {
                 path: "/signin",
@@ -66,7 +74,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path:"/dashboard/mybookings",
-                element:<MyBooking></MyBooking>
+                element:<MyBooking></MyBooking>,
             },
             {
                 path:"/dashboard/addpackage",
