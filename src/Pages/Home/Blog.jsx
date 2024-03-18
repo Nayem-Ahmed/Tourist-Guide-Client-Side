@@ -14,9 +14,9 @@ const Blog = () => {
                 <div className="text-white">
                     <h2 className="text-3xl font-semibold mb-4">Discover Your Next Adventure</h2>
                     <p className="text-lg mb-6">Explore the beauty of nature and immerse yourself in breathtaking landscapes.</p>
-                    <Link to={`/`}>
+                    <Link to={`/blogs`}>
                         <button type='button' className='bg-[#ff7550] py-3 px-8 rounded-sm text-white hover:bg-black'>
-                            Explore Now!
+                            Read Story!
                         </button></Link>
                 </div>
             </div>

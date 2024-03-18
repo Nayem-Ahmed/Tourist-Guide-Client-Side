@@ -56,6 +56,9 @@ import details from '../../assets/tab1.jpg';
 import AboutTourSection from './AboutTourSection';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../API/useAuth';
+import { AddBookingPost } from '../../API/package';
+import { imgUpload } from '../../API/imgbb';
+import { toast } from 'react-toastify';
 
 const Packagedetails = () => {
     const { user } = useAuth();
@@ -70,6 +73,17 @@ const Packagedetails = () => {
         try {
             // Your form submission logic goes here
             console.log(data);
+            // Assuming imgUpload is a function that handles image upload
+            const imageData = await imgUpload(data.TouristImage[0]);
+            console.log(imageData);
+            const updatedData = {
+                ...data,
+                TouristImage: imageData?.data?.url,
+            };
+            await AddBookingPost(updatedData)
+            toast('Add Booking Successfull')
+            //navigate('/dashboard/manage')
+            reset();
 
         } catch (error) {
             toast.error(error.message);
