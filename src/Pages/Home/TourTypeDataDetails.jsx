@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import details from '../../assets/tab1.jpg';
 import { AddWishlistPost } from '../../API/package';
 import { toast } from 'react-toastify';
@@ -9,6 +9,7 @@ import useAuth from '../../API/useAuth';
 const TourTypeDataDetails = () => {
     const tourTypesDataDetails = useLoaderData();
     const {user} = useAuth();
+    const navigate = useNavigate();
     console.log(tourTypesDataDetails);
 
     const handleWishlist = async (packagee) => {
@@ -21,7 +22,7 @@ const TourTypeDataDetails = () => {
             };
             const wish = await AddWishlistPost(information);
             toast.success('Added Wishlist Successfull')
-            console.log(wish);
+            navigate('/dashboard/mywishlist')
 
         } catch (error) {
             console.error('Error in handleWishlist:', error);

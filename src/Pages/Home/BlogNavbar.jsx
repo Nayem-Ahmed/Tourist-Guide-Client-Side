@@ -10,7 +10,7 @@ const BlogNavbar = () => {
             </div>
             <div className="hero-content  text-center">
                 <div className=" md:w-[800px] p-2 md:p-10 bg-[#fee133] -mt-36 text-white">
-                    <h1 className="mb-5 md:text-5xl font-bold"> BLOG MASONRY </h1>
+                    <h1 className="mb-5 md:text-4xl font-bold"> BLOG MASONRY </h1>
                     <p className="mb-5"> This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nib </p>
 
                 </div>
@@ -19,8 +19,8 @@ const BlogNavbar = () => {
 
 
             <div className="content-container flex flex-col justify-center items-center h-full my-10">
-                <div className="max-w-3xl px-4 text-center">
-                    <h1 className="text-2xl md:text-5xl font-medium mb-4">Explore Our Latest Blog</h1>
+                <div className="  px-4 text-center">
+                    <h1 className="text-2xl md:text-4xl font-medium mb-4">Explore Our Latest Blog</h1>
                     <p className="text-lg md:text-xl mb-8 text-gray-500">Discover exciting travel destinations, insider tips, and inspiring stories from fellow adventurers.</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="bg-white rounded-lg shadow-md flex flex-col">
