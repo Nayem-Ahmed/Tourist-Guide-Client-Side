@@ -30,8 +30,8 @@ import { useEffect, useState } from "react";
 import axiosPublic from "../../API/axiosPublic";
 import { Link } from "react-router-dom";
 import bggg from '../../assets/bggg.avif'
-
 import React from 'react';
+import Loader from "../../Components/Loader";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -40,10 +40,17 @@ import { Pagination, Navigation } from 'swiper/modules';
 
 const TourType = () => {
     const [tourtype, setTourtype] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         axiosPublic.get('/addpackage')
-            .then(response => setTourtype(response.data))
-            .catch(error => console.error('Error fetching packages:', error));
+            .then(response => {
+                setTourtype(response.data)
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching packages:', error)
+                setLoading(false);
+            });
     }, []);
 
     // Object to keep track of unique tour types
@@ -53,8 +60,8 @@ const TourType = () => {
     tourtype.forEach(tour => {
         uniqueTourTypes[tour.tourType] = tour;
     });
-    // 
 
+    if (loading) return <Loader></Loader>;
     return (
         <div className="bg-cover bg-center min-h-screen p-10 mb-8" style={{ backgroundImage: `url(${bggg})` }}>
             <div className="text-center  mb-6">

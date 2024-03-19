@@ -82,11 +82,11 @@ const AddPackage = () => {
                         </div>
                     </div>
 
-                    {/* Tourist Image Input */}
+                    {/*  Package Image Input */}
                     <div className="mb-4">
                         <label htmlFor="TouristImage" className="block text-gray- 600 text-sm font-medium mb-2">
                             <IoMdAttach className="inline mr-2" />
-                            Tourist Image
+                             Package Image
                         </label>
                         <input
                             type="file"
@@ -137,11 +137,11 @@ const AddPackage = () => {
                         />
                         {errors.price && <p className="text-red-500 text-xs italic">{errors.price.message}</p>}
                     </div>
-                    {/* Tourist Image Input */}
+                    {/* Guidet Image Input */}
                     <div className="mb-4">
                         <label htmlFor="TouristGuideImage" className="block text-gray- 600 text-sm font-medium mb-2">
                             <IoMdAttach className="inline mr-2" />
-                            Tourist Image
+                             Guide Image
                         </label>
                         <input
                             type="file"

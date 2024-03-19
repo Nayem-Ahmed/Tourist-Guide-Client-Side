@@ -6,7 +6,7 @@ import BlogNavbar from './BlogNavbar';
 const Blog = () => {
     return (
         <div className=''>
-            <div className='text-center w-2/5 mx-auto mb-8 mt-10'>
+            <div className='text-center md:w-2/5 mx-auto mb-8 mt-10'>
                 <h1 className='md:text-5xl text-2xl font-medium mb-4'>BLOG POST</h1>
                 <p className='text-gray-500'>Making Memories and Bonding Through Travel, Embarking on Shared Experiences, Strengthening Family Ties, and Creating Lasting Connections Across Generations</p>
             </div>

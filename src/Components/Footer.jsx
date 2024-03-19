@@ -9,11 +9,11 @@ const Footer = () => {
             <div className='flex flex-col md:flex-row gap-5 justify-center md:justify-between  text-white border-b-2 py-6'>
                 <div className='md:w-3/12'>
                     <h1 className='text-xl font-medium   mb-5 '>About Tourist Guide</h1>
-                    <p className='font-light text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quisquam quaerat eaque? Sapiente cupiditate explicabo possimus fugiat, sunt iure vero?</p>
+                    <p className='font-light text-gray-300'>Embark on a journey of discovery and let your wanderlust guide you to new horizons. With our expertly crafted tours and personalized experiences, every moment.</p>
                 </div>
                 <div>
                     <h1 className='text-xl font-medium  '>Explore</h1>
-                    <ul className='mt-5 text-gray-500'>
+                    <ul className='mt-5 text-gray-300'>
                         <li className='hover:text-yellow-500 mb-1'><Link>Gallery</Link></li>
                         <li className='hover:text-yellow-500 mb-1'><Link>News & Articles</Link></li>
                         <li className='hover:text-yellow-500 mb-1'><Link>FAQ</Link></li>
@@ -24,7 +24,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h1 className='text-xl font-medium '>Links</h1>
-                    <ul className='mt-5 text-gray-500'>
+                    <ul className='mt-5 text-gray-300'>
                         <li className='hover:text-yellow-500 mb-1'><Link to="/">HOME</Link></li>
                         <li className='hover:text-yellow-500 mb-1'><Link to="/community">Community</Link></li>
                         <li className='hover:text-yellow-500 mb-1'><Link to="/blogs">Blogs</Link></li>
@@ -35,7 +35,7 @@ const Footer = () => {
                 <div>
                     <h1 className='text-xl font-medium '>Contacts</h1>
                     <div className='flex'>
-                        <ul className='mt-5 text-gray-500'>
+                        <ul className='mt-5 text-gray-300'>
                             <li className='hover:text-yellow-500 mb-2'>+92 (0088) 6823</li>
                             <li className='hover:text-yellow-500 mb-2'>needhelp@company.com</li>
                             <li className='hover:text-yellow-500'>80 Broklyn Golden Street. New York. USA</li>
