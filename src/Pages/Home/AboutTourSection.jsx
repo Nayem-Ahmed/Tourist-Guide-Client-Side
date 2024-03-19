@@ -83,17 +83,17 @@ const AboutTourSection = () => {
                     <div className="divider"></div>
                     <div className=' '>
                         <div>
-                            <div className="border p-3 mb-4 flex justify-between">
-                                <h1 className='font-medium text-gray-500'>DEPARTURE/RETURN LOCATION</h1>
+                            <div className="border p-3 mb-4 md:flex justify-between">
+                                <h1 className='md:font-medium text-gray-500'>DEPARTURE/RETURN LOCATION</h1>
                                 <p>San Francisco International Airport</p>
                             </div>
 
-                            <div className="border p-3 mb-4 flex justify-between">
+                            <div className="border p-3 mb-4 md:flex justify-between">
                                 <h1 className='font-medium text-gray-500'>DEPARTURE TIME</h1>
                                 <p>Please arrive at least 2 hours before the flight.</p>
                             </div>
 
-                            <div className="border p-3 mb-4 flex justify-between">
+                            <div className="border p-3 mb-4 md:flex justify-between">
                                 <h1 className='font-medium text-gray-500'>INCLUDED</h1>
                                 <ul>
                                     <li className='flex items-center gap-1 '><FaCheck className='text-green-500'></FaCheck>Airfare</li>
@@ -101,7 +101,7 @@ const AboutTourSection = () => {
                                 </ul>
                             </div>
 
-                            <div className="border p-3 flex justify-between">
+                            <div className="border p-3 md:flex justify-between">
                                 <h1 className='font-medium text-gray-500'>NOT INCLUDED</h1>
                                 <ul>
                                     <li className='flex items-center gap-1 '><RxCross2 className='text-red-500'></RxCross2>Meals</li>

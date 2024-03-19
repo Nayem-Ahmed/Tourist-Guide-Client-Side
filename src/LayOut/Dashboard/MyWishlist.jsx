@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { deleteWishlist, getWishList } from '../../API/package';
 import useAuth from '../../API/useAuth';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 
 const MyWishlist = () => {
     const { user } = useAuth();
@@ -49,10 +50,6 @@ const MyWishlist = () => {
         }
     };
 
-    const handleVisitDetails = (packageId) => {
-        // Handle visit details for package with ID packageId
-    };
-
     return (
         <div className="overflow-x-auto">
             {wishlistData.length === 0 ? (
@@ -80,7 +77,9 @@ const MyWishlist = () => {
                                     <button onClick={() => handleDelete(wishlist._id)} className="btn btn-ghost btn-xs bg-red-500 mr-2">Delete</button>
                                 </td>
                                 <td>
-                                    <button onClick={() => handleVisitDetails(wishlist.packageId)} className="btn btn-ghost btn-xs bg-blue-500">Visit Details</button>
+                                    <Link to={`wishlistDetails/${wishlist._id}`}>
+                                        <button className="btn btn-ghost btn-xs bg-blue-500">Visit Details</button>
+                                    </Link>
                                 </td>
                             </tr>
                         ))}

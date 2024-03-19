@@ -20,6 +20,7 @@ import Blog from "../Pages/Home/Blog";
 import BlogDetails from "../Pages/Home/BlogDetails";
 import BlogNavbar from "../Pages/Home/BlogNavbar";
 import Privetroute from "../Routes/Privetroute";
+import WishlistDetails from "../LayOut/Dashboard/WishlistDetails";
 
 const router = createBrowserRouter([
     {
@@ -87,6 +88,11 @@ const router = createBrowserRouter([
             {
                 path:"/dashboard/mywishlist",
                 element: <MyWishlist></MyWishlist>,
+            },
+            {
+                path:"/dashboard/mywishlist/wishlistDetails/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/wishlist/id/${params.id}`),
+                element: <WishlistDetails></WishlistDetails>,
             },
             {
                 path:"/dashboard/profile",

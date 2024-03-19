@@ -77,7 +77,7 @@ const MyBooking = () => {
                                 <td>{book?.tourType}</td>
                                 <td>{book?.tourGuideName}</td>
                                 <td>{book?.tourDate}</td>
-                                <td>{book?.price}</td>
+                                <td>${book?.price}</td>
                                 <td>
                                     <button onClick={() => handleDelete(book._id)} className="btn btn-ghost btn-xs bg-red-500 mr-2">Delete</button>
                                 </td>
