@@ -20,7 +20,7 @@ const MyBooking = () => {
         fetchData();
     }, [user]);
 
-    const handleDelete = async (id) => {
+    const handleCancel = async (id) => {
         // Show confirmation alert
         swal({
             title: "Are you sure?",
@@ -52,6 +52,17 @@ const MyBooking = () => {
             });
     }
 
+    const handlePay = (bookingId) => {
+        // Logic to handle payment
+        toast.success(`Payment for booking ${bookingId} successful!`);
+    };
+
+
+    const handleApply = (bookingId) => {
+        // Logic to handle applying
+        toast.info(`Applied for booking ${bookingId}!`);
+    };
+
     return (
         <div className="overflow-x-auto">
             {booking.length === 0 ? (
@@ -67,7 +78,6 @@ const MyBooking = () => {
                             <th>Tour Date</th>
                             <th>Price</th>
                             <th>Status</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,11 +88,23 @@ const MyBooking = () => {
                                 <td>{book?.tourGuideName}</td>
                                 <td>{book?.tourDate}</td>
                                 <td>${book?.price}</td>
-                                <td>
+                                {/* <td>
                                     <button onClick={() => handleDelete(book._id)} className="btn btn-ghost btn-xs bg-red-500 mr-2">Delete</button>
-                                </td>
+                                </td> */}
                                 <td>
-                                    <button className="btn btn-ghost btn-xs bg-blue-500">Visit Details</button>
+                                    {book.status === 'review' && (
+                                        <>
+                                            <button className="btn btn-ghost btn-xs bg-red-500 mr-2" onClick={() => handleCancel(book._id)}>Cancel</button>
+                                            <button className="btn btn-ghost btn-xs bg-red-500 mr-2" onClick={() => handleApply(book._id)} disabled>Apply</button>
+                                            <button className="btn btn-ghost btn-xs bg-blue-500 mr-2" onClick={() => handlePay(book._id)} disabled>Pay</button>
+                                        </>
+                                    )}
+                                    {book.status === 'accepted' && (
+                                        <button className="btn btn-ghost btn-xs bg-green-500 mr-2" onClick={() => handlePay(book._id)}>Pay</button>
+                                    )}
+                                    {book.status === 'rejected' && (
+                                        <button className="btn btn-ghost btn-xs bg-gray-200 mr-2" >you rejected</button>
+                                    )}
                                 </td>
                             </tr>
                         ))}

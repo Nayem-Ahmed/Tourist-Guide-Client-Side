@@ -80,6 +80,7 @@ const Packagedetails = () => {
             const updatedData = {
                 ...data,
                 TouristImage: imageData?.data?.url,
+                status: "review",
             };
             await AddBookingPost(updatedData)
             toast('Add Booking Successfull')

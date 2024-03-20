@@ -21,6 +21,7 @@ import BlogDetails from "../Pages/Home/BlogDetails";
 import BlogNavbar from "../Pages/Home/BlogNavbar";
 import Privetroute from "../Routes/Privetroute";
 import WishlistDetails from "../LayOut/Dashboard/WishlistDetails";
+import MyAssignedTours from "../LayOut/Dashboard/MyAssignedTours";
 
 const router = createBrowserRouter([
     {
@@ -74,28 +75,32 @@ const router = createBrowserRouter([
         element: <Privetrout><Dashboard></Dashboard></Privetrout>,
         children: [
             {
-                path:"/dashboard/mybookings",
-                element:<MyBooking></MyBooking>,
+                path: "/dashboard/mybookings",
+                element: <MyBooking></MyBooking>,
             },
             {
-                path:"/dashboard/addpackage",
-                element:<AddPackage></AddPackage>,
+                path: "/dashboard/addpackage",
+                element: <AddPackage></AddPackage>,
             },
             {
-                path:"/dashboard/manageusers",
+                path: "/dashboard/manageusers",
                 element: <ManageUser></ManageUser>,
             },
             {
-                path:"/dashboard/mywishlist",
+                path: "/dashboard/mywishlist",
                 element: <MyWishlist></MyWishlist>,
             },
             {
-                path:"/dashboard/mywishlist/wishlistDetails/:id",
+                path: "/dashboard/mywishlist/wishlistDetails/:id",
                 loader: ({ params }) => fetch(`http://localhost:5000/wishlist/id/${params.id}`),
                 element: <WishlistDetails></WishlistDetails>,
             },
             {
-                path:"/dashboard/profile",
+                path: "/dashboard/myassignedTours",
+                element: <MyAssignedTours></MyAssignedTours>,
+            },
+            {
+                path: "/dashboard/profile",
                 element: <Profile></Profile>,
             },
 

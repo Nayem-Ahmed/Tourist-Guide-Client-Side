@@ -31,13 +31,18 @@ export const AddBookingPost = async (book) => {
     const { addData } = await axiosPublic.post('/booking', book)
     return addData;
 }
+// Fetch all booking from db
+export const getAllBooking = async () => {
+    const { data } = await  axiosPublic('/booking')
+    return data
+}
+// Get book by params
+export const getBooking = async (email) => {
+    const { data } = await axiosPublic(`/booking/${email}`)
+    return data;
+}
 //Delete booking
 export const deleteBooking = async (deletebook) => {
     const { deletedata } = await axiosPublic.delete(`/booking/${deletebook}`)
     return deletedata;
-}
-// Get wishlists by params
-export const getBooking = async (email) => {
-    const { data } = await axiosPublic(`/booking/${email}`)
-    return data;
 }

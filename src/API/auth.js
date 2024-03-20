@@ -3,7 +3,7 @@ import axiosPublic from "./axiosPublic"
 // Save user data in database
 export const saveUser = async (user) => {
     const currentUser = {
-        name:user?.displayName,
+        name: user?.displayName,
         email: user?.email,
         photo: user?.photoURL,
         role: 'tourist',
@@ -22,4 +22,10 @@ export const getRole = async email => {
 export const getAllUsers = async () => {
     const { data } = await axiosPublic('/users')
     return data
+}
+// change role 
+export const changeRole = async (id) => {
+    const { data } = await axiosPublic.patch(`/booking/${id}`)
+    return data;
+
 }

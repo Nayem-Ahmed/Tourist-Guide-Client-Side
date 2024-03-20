@@ -66,12 +66,12 @@ const Navbar = () => {
                             }
                         </div>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-lg bg-base-100 rounded-md  w-52">
 
                         {user?.email ? <li className='mb-3 font-semibold'>{user?.displayName}</li> : null}
                         {user?.email ? <li className='mb-3 font-semibold'>{user?.email}</li> : null}
 
-                        <Link className='mb-3' to='/dashboard'><li className='font-semibold bg-gray-200 p-1'>Dashboard</li></Link>
+                        <Link className='mb-3' to='/dashboard'><li className='font-semibold bg-gray-200 p-1 inline'>Dashboard</li></Link>
 
                     </ul>
                 </div>

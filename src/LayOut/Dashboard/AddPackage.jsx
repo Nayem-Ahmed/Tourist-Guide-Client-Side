@@ -86,7 +86,7 @@ const AddPackage = () => {
                     <div className="mb-4">
                         <label htmlFor="TouristImage" className="block text-gray- 600 text-sm font-medium mb-2">
                             <IoMdAttach className="inline mr-2" />
-                             Package Image
+                            Package Image
                         </label>
                         <input
                             type="file"
@@ -141,12 +141,13 @@ const AddPackage = () => {
                     <div className="mb-4">
                         <label htmlFor="TouristGuideImage" className="block text-gray- 600 text-sm font-medium mb-2">
                             <IoMdAttach className="inline mr-2" />
-                             Guide Image
+                            Guide Image
                         </label>
                         <input
                             type="file"
                             id="TouristGuideImage"
                             {...register("TouristGuideImage")}
+                            //multiple Add the 'multiple' attribute here
                             required
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray- 600 leading-tight focus:outline-none focus:shadow-outline"
                         />
