@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { deleteBooking, getBooking } from '../../API/package';
 import useAuth from '../../API/useAuth';
 import swal from 'sweetalert';
+import { toast } from 'react-toastify';
 
 const MyBooking = () => {
     const { user } = useAuth();
@@ -88,9 +89,6 @@ const MyBooking = () => {
                                 <td>{book?.tourGuideName}</td>
                                 <td>{book?.tourDate}</td>
                                 <td>${book?.price}</td>
-                                {/* <td>
-                                    <button onClick={() => handleDelete(book._id)} className="btn btn-ghost btn-xs bg-red-500 mr-2">Delete</button>
-                                </td> */}
                                 <td>
                                     {book.status === 'review' && (
                                         <>

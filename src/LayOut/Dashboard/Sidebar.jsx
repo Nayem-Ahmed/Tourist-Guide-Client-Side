@@ -68,30 +68,30 @@ const Sidebar = () => {
                                 label='My Wishlist'
                                 address='/dashboard/mywishlist'
                             />
-                            {/* {role === 'guide' && <>
+                            {role === 'guide' && <>
 
-                            </>} */}
                                 <MenuItem
                                     icon={GrUserManager}
                                     label='My Assigned Tours'
                                     address='/dashboard/myassignedTours'
                                 />
-                            {/* {role === 'admin' &&
+                            </>}
+                            {role === 'admin' &&
 
                                 <>
 
+                                    <MenuItem
+                                        icon={IoAddCircleOutline}
+                                        label='Add Package'
+                                        address='/dashboard/addpackage'
+                                    />
+                                    <MenuItem
+                                        icon={MdManageHistory}
+                                        label='Manage Users'
+                                        address='/dashboard/manageusers'
+                                    />
                                 </>
-                            } */}
-                            <MenuItem
-                                icon={IoAddCircleOutline}
-                                label='Add Package'
-                                address='/dashboard/addpackage'
-                            />
-                            <MenuItem
-                                icon={MdManageHistory}
-                                label='Manage Users'
-                                address='/dashboard/manageusers'
-                            />
+                            }
 
                         </nav>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getAllBooking } from '../../API/package';
-import { changeRole } from '../../API/auth';
+import { changeRole, changeRoleAccepted } from '../../API/auth';
 
 const MyAssignedTours = () => {
     const [allbooking, setAllBooking] = useState([]);
@@ -22,6 +22,10 @@ const MyAssignedTours = () => {
     const handleRoleRejected = async (role) => {
         const reject = await changeRole(role)
         console.log(reject);
+    }
+    const handleRoleAccepted = async (accepte) => {
+        const  accep = await changeRoleAccepted(accepte)
+        console.log(accep);
     }
     return (
         <div className="overflow-x-auto">
@@ -52,7 +56,7 @@ const MyAssignedTours = () => {
                                 <td>
                                     {booked?.status === "review" && (
                                         <>
-                                            <button className="btn btn-ghost btn-xs bg-blue-500 mr-2">Accept</button>
+                                            <button  onClick={() => handleRoleAccepted(booked._id)} className="btn btn-ghost btn-xs bg-blue-500 mr-2">Accept</button>
                                             <button onClick={() => handleRoleRejected(booked._id)} className="btn btn-ghost btn-xs bg-red-500">Reject</button>
                                         </>
                                     )}
