@@ -45,38 +45,20 @@ const TravelGuide = () => {
     }
     return (
         <div>
-            <Tabs className="mx-auto block text-center mt-5 mb-10">
+            <Tabs className="mx-auto block text-center mt-5 mb-10 font-medium">
                 <TabList>
-                    <Tab>Overview</Tab>
                     <Tab>Our Packages</Tab>
+                    <Tab>Overview</Tab>
                     <Tab>Meet Our Tour Guides</Tab>
                 </TabList>
 
-                <TabPanel>
-                    <div className='p-5'>
-                        <div className='flex flex-col md:flex-row gap-5'>
-                            <div className='text-left md:basis-2/3'>
-                                <p className='mb-4 text-xl font-semibold'>Welcome to our Travel Agency!</p>
-                                <h2 className='mb-4  text-lg text-gray-500'>Here you can find exciting travel packages and meet our amazing tour guides.Discover the world with us and create unforgettable memories!  Whether you're looking for adventurous activities, cultural experiences, or relaxing getaways, we have something for everyone</h2>
-                                <h3 className='text-lg text-gray-500'>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden inthe middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,making this the first true generator on the Internet.</h3>
-                            </div>
-                            <div className='md:basis-1/2'>
-                                <iframe className='md:w-[500px] md:h-80'
-                                    src="https://www.youtube.com/embed/oYRw02g706M"
-                                    title="Overview Video"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
-                            </div>
-                        </div>
-                    </div >
-                </TabPanel>
+       
 
                 <TabPanel>
                     {/* Package list */}
                     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 p-5 ">
                         {packag.map((packages, index) => (
-                            <div key={index} className="card card-compact  bg-base-100 shadow-md rounded-md group">
+                            <div key={index} className="card card-compact  bg-base-100 shadow-md rounded-sm group">
                                 <figure><img className='relative w-full md:h-56 group-hover:scale-110  transition duration-300 ease-in-out' src={packages.TouristImage} alt={packages.tourType} /></figure>
                                 <button type='button' style={{ background: 'rgba(255, 255, 255, 0.30)', padding: '0.5rem', position: 'absolute', right: '5px', top: '3px', borderRadius: '2px', zIndex: '1' }} className='hover:text-[#ff7550]'>
                                     <button type='button' onClick={() => handleWishlist(packages)}> <FaRegHeart className='text-2xl' /></button>
@@ -95,6 +77,25 @@ const TravelGuide = () => {
                     {/* <button type='button' className='bg-[#ff7550] py-2 mt-8 mx-auto block  text-center text-white  px-5 rounded-sm hover:bg-black'>
                         All Packages
                     </button> */}
+                </TabPanel>
+                <TabPanel>
+                    <div className='p-5'>
+                        <div className='flex flex-col md:flex-row gap-5'>
+                            <div className='text-left md:basis-2/3'>
+                                <p className='mb-4 text-xl font-semibold'>Welcome to our Travel Agency!</p>
+                                <h2 className='mb-4  text-lg text-gray-500'>Here you can find exciting travel packages and meet our amazing tour guides.Discover the world with us and create unforgettable memories!  Whether you're looking for adventurous activities, cultural experiences, or relaxing getaways, we have something for everyone</h2>
+                                <h3 className='text-lg text-gray-500'>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden inthe middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,making this the first true generator on the Internet.</h3>
+                            </div>
+                            <div className='md:basis-1/2'>
+                                <iframe className='md:w-[500px] md:h-80'
+                                    src="https://www.youtube.com/embed/oYRw02g706M"
+                                    title="Overview Video"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div >
                 </TabPanel>
 
                 <TabPanel>

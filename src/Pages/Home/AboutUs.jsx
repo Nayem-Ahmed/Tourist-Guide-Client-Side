@@ -1,4 +1,4 @@
-import React from 'react';
+ 
 import { Link } from 'react-router-dom';
 import about from '../../assets/abouttt.jpg'
 import why from '../../assets/why.webp'
@@ -6,7 +6,6 @@ import { MdOutlineHighQuality } from "react-icons/md";
 import { GiSkills } from "react-icons/gi";
 import { TbPackages } from "react-icons/tb";
 import CallToAction from './CallToAction ';
-
 
 
 

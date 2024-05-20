@@ -7,13 +7,21 @@ import router from './Routes/Router.jsx'
 import AuthProviders from './Providers/AuthProviders.jsx'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ParallaxProvider } from 'react-scroll-parallax'
+import { QueryClientProvider,QueryClient} from '@tanstack/react-query'
+const queryClient = new QueryClient()
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProviders>
-      <RouterProvider router={router}></RouterProvider>
-      <ToastContainer />
+      <QueryClientProvider client={queryClient}>
+
+        <ParallaxProvider>
+          <RouterProvider router={router}></RouterProvider>
+          <ToastContainer />
+        </ParallaxProvider>
+      </QueryClientProvider>
     </AuthProviders>
   </React.StrictMode>,
 )

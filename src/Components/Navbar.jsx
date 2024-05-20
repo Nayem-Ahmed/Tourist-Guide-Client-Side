@@ -2,9 +2,11 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import useAuth from '../API/useAuth';
+import useRole from '../LayOut/Hooks/useRole';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+    const [userInfo, isLoading, refetch] = useRole();
     return (
         <div className="navbar bg-base-100 relative z-50">
             <div className="navbar-start">
@@ -24,7 +26,7 @@ const Navbar = () => {
                                 <li><a>Submenu 2</a></li>
                             </ul>
                         </li>
-                        <li><a>Item 3</a></li>
+                
                     </ul>
                 </div>
                 <Link to='/'>
@@ -57,7 +59,7 @@ const Navbar = () => {
                         <div className="w-10 rounded-full">
                             {user?.email ?
                                 <div className='flex items-center gap-2'>
-                                    <img className='rounded-full w-8' src={user?.photoURL} alt="" />
+                                    <img className='rounded-full w-8 object-cover' src={userInfo?.photo} alt="" />
                                 </div>
                                 :
                                 <div className='flex items-center gap-2'>

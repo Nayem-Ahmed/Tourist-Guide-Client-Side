@@ -13,7 +13,7 @@ export const saveUser = async (user) => {
     return data;
 }
 // Get user role
-export const getRole = async email => {
+export const getRole = async (email) => {
     const { data } = await axiosPublic(`/users/${email}`)
     return data
 }
@@ -22,6 +22,11 @@ export const getRole = async email => {
 export const getAllUsers = async () => {
     const { data } = await axiosPublic('/users')
     return data
+}
+// update user
+export const updateProfile = async (email, updateInfo) => {
+    const { data } = await axiosPublic.patch(`/updateProfile/${email}`, updateInfo);
+    return data;
 }
 // change role rejected
 export const changeRole = async (id) => {
@@ -35,3 +40,5 @@ export const changeRoleAccepted = async (id) => {
     return data;
 
 }
+
+

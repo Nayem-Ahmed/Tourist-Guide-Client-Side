@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login2 from '../assets/loginn.webp';
 import signupbg from '../assets/signupbg.avif';
 import useAuth from '../API/useAuth';
@@ -12,6 +12,7 @@ import { saveUser } from '../API/auth';
 const Signin = () => {
     const { signIn, signInWithGoogle } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
         try {

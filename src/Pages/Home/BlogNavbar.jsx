@@ -1,8 +1,10 @@
 import React from 'react';
 import blogg from '../../assets/tab2.jpg'
-
+  
 const BlogNavbar = () => {
     return (
+      
+
         <div>
             {/* bg-[#15151599] */}
             <div className="hero object-cover h-96" style={{ backgroundImage: `url(${blogg})` }}>
@@ -44,7 +46,7 @@ const BlogNavbar = () => {
                 </div>
             </div>
         </div>
-
+ 
     );
 };
 

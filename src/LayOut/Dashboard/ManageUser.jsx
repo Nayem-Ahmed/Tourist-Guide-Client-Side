@@ -49,10 +49,10 @@ const ManageUser = () => {
                             </td>
                             <td>{userone?.role}</td>
                             <td>
-                                <button onClick={() => makeAdmin(user.id)} className="btn btn-ghost btn-xs bg-[#ff7550]">Make Admin</button>
+                                <button onClick={() => makeAdmin(userone.id)} className="btn btn-ghost btn-xs bg-[#ff7550]">Make Admin</button>
                             </td>
                             <td>
-                                <button onClick={() => makeTourGuide(user.id)} className="btn btn-ghost btn-xs bg-[#ff7550]">Make Tour Guide</button>
+                                <button onClick={() => makeTourGuide(userone.id)} className="btn btn-ghost btn-xs bg-[#ff7550]">Make Tour Guide</button>
                             </td>
                         </tr>
                     ))}

@@ -15,9 +15,9 @@ import useRole from '../Hooks/useRole';
 
 const Sidebar = () => {
     const { user } = useAuth();
-    const [role] = useRole()
+    const [userInfo] = useRole()
     const [isActive, setActive] = useState(false)
-    console.log(role);
+    console.log(userInfo);
 
     const handleToggle = () => {
         setActive(!isActive)
@@ -68,7 +68,7 @@ const Sidebar = () => {
                                 label='My Wishlist'
                                 address='/dashboard/mywishlist'
                             />
-                            {role === 'guide' && <>
+                            {userInfo?.role === 'guide' && <>
 
                                 <MenuItem
                                     icon={GrUserManager}
@@ -76,7 +76,7 @@ const Sidebar = () => {
                                     address='/dashboard/myassignedTours'
                                 />
                             </>}
-                            {role === 'admin' &&
+                            {userInfo?.role === 'admin' &&
 
                                 <>
 

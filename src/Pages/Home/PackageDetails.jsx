@@ -52,7 +52,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
-import details from '../../assets/tab1.jpg';
+import details from '../../assets/details.webp';
 import AboutTourSection from './AboutTourSection';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../API/useAuth';
@@ -94,7 +94,7 @@ const Packagedetails = () => {
 
     return (
         <div>
-            <div style={{ backgroundImage: `url(${details})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '50vh', padding: '30px', backgroundAttachment: "fixed" }}>
+            <div style={{ backgroundImage: `url(${details})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '60vh', padding: '30px', backgroundAttachment: "fixed" }}>
                 <h1 className="text-lg flex justify-end mr-0 text-white "><span className='bg-[#ff7550] md:px-10 md:py-3 p-1'>Price: ${packagedetails.price}</span> </h1>
                 <div className="flex flex-col justify-center items-center  text-white">
                     <h1 className="md:text-4xl text-2xl font-bold">Package Details</h1>
@@ -102,9 +102,9 @@ const Packagedetails = () => {
                 </div>
             </div>
             <AboutTourSection />
-            <div>
-                <div className='flex flex-col-reverse md:flex-row justify-between my-2 gap-2 md:w-10/12 m-auto rounded-md bg-white p-2'>
-                    <div className=' md:p-10 p-5 text-center md:text-left md:shadow-2xl'>
+            <div className='p-5'>
+                <div className='flex flex-col-reverse md:flex-row justify-between border my-2 gap-2 p-2 m-auto rounded-md bg-white'>
+                    <div className=' md:p-10 p-5 text-center md:text-left  w-full'>
                         <h2 className="text-2xl font-medium mb-3 ">{packagedetails.tripTitle}</h2>
                         <p className="text-lg mb-2 text-gray-500">Tour Type : {packagedetails.tourType}</p>
                         <p className="text-lg mb-2 text-gray-500">Tour Date : {packagedetails.tourDate}</p>
@@ -119,10 +119,10 @@ const Packagedetails = () => {
                         </button>
                     </div>
                     <div className=''>
-                        <img className='w-full md:h-96 rounded-md shadow-md' src={packagedetails.TouristImage} alt="" />
+                        <img className='w-full rounded-sm shadow-md' src={packagedetails.TouristImage} alt="" />
                     </div>
                 </div>
-                {/* BOOK      From  */}
+                {/* BOOK   From  */}
                 {showForm && (
                     <form onSubmit={handleSubmit(onSubmit)} className="bg-white mx-auto shadow-md rounded px-8 pt-4 pb-8  ">
                         <div className="md:grid md:grid-cols-2 gap-4 mb-4">
